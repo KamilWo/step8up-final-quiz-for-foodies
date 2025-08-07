@@ -1,0 +1,87 @@
+{
+  "name": "step8up-final-quiz-for-foodies",
+  "version": "0.1.0",
+  "description": "Quiz for Foodies - Test your tastebuds and challenge your culinary knowledge!",
+  "private": true,
+  "scripts": {
+    "start": "node src/server/server.js --ignore client",
+    "dev": "concurrently \"cd src/server && npm run dev\" \"cd src/client && npm run dev\"",
+    "install": "cd src/server && npm i && cd ../client && npm i",
+    "seed": "cd src/server && npm run seed",
+    "build": "cd src/client && npm run build",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,yaml,css,html}": [
+      "prettier --write"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KamilWo/step8up-final-quiz-for-foodies.git"
+  },
+  "keywords": [
+    "quiz",
+    "food",
+    "foodies",
+    "react",
+    "node.js",
+    "sequelize"
+  ],
+  "author": "Front-ends-inc team",
+  "contributors": [
+    {
+      "name": "Kamil Wozniak",
+      "url": "https://github.com/KamilWo"
+    },
+    {
+      "name": "Emily-Mae Kona",
+      "url": "https://github.com/emilymaeleung"
+    },
+    {
+      "name": "Charlie Cooke",
+      "url": "https://github.com/charliecooke01"
+    },
+    {
+      "name": "Wani Aris",
+      "url": "https://github.com/"
+    },
+    {
+      "name": "Isaac",
+      "url": "https://github.com/kusiHenry"
+    }
+  ],
+  "license": "GPLv3",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KamilWo/step8up-final-quiz-for-foodies/issues"
+  },
+  "homepage": "https://github.com/KamilWo/step8up-final-quiz-for-foodies#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "clearMocks": true,
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/server/**/*.js"
+    ],
+    "testMatch": [
+      "**/tests/unit/**/*.js",
+      "**/tests/integration/**/*.js",
+      "**/tests/e2e/**/*.js"
+    ]
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "jest": "^30.0.5",
+    "prettier": "^3.6.2"
+  }
+}

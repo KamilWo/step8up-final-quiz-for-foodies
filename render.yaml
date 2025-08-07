@@ -1,8 +1,8 @@
 services:
   - type: web
-    name: step8up-week9-react-portfolio
+    name: step8up-final-quiz-for-foodies
     runtime: node
-    repo: https://github.com/KamilWo/step8up-week9-react-portfolio
+    repo: https://github.com/KamilWo/step8up-final-quiz-for-foodies
     plan: free
     envVars:
       - key: DATABASE_URL
@@ -13,7 +13,7 @@ services:
         sync: false
     region: virginia
     buildCommand: yarn --frozen-lockfile install
-    startCommand: node src/server/server.js
+    startCommand: node server/server.js
     healthCheckPath: /healthz
     autoDeployTrigger: "off"
 version: "1"
