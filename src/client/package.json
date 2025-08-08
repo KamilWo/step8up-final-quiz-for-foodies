@@ -1,37 +1,15 @@
 {
-  "name": "step8up-final-quiz-for-foodies",
+  "name": "step8up-final-quiz-for-foodies-client",
   "version": "0.1.0",
-  "description": "Quiz for Foodies - Test your tastebuds and challenge your culinary knowledge!",
+  "description": "Quiz for Foodies - Test your tastebuds and challenge your culinary knowledge! Client side",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "node src/server/server.mjs --ignore client",
-    "dev": "concurrently \"cd src/server && npm run dev\" \"cd src/client && npm run dev\"",
-    "install": "cd src/server && npm i && cd ../client && npm i",
-    "seed": "cd src/server && npm run seed",
-    "build": "cd src/client && npm run build",
-    "prepare": "husky"
+    "build": "vite build",
+    "dev": "vite",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,yaml,css,html}": [
-      "prettier --write"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KamilWo/step8up-final-quiz-for-foodies.git"
-  },
-  "keywords": [
-    "quiz",
-    "food",
-    "foodies",
-    "react",
-    "node.js",
-    "sequelize"
-  ],
   "author": "Front-ends-inc team",
   "contributors": [
     {
@@ -56,7 +34,6 @@
     }
   ],
   "license": "GPLv3",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/KamilWo/step8up-final-quiz-for-foodies/issues"
   },
@@ -75,14 +52,19 @@
     ]
   },
   "dependencies": {
-    "concurrently": "^9.1.2",
-    "yarn": "^1.22.22"
+    "@vitejs/plugin-react-swc": "^3.11.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.8.0",
+    "vite": "^7.1.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
     "eslint": "^9.32.0",
-    "eslint-config-prettier": "^10.1.8",
-    "husky": "^9.1.7",
-    "jest": "^30.0.5",
-    "prettier": "^3.6.2"
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0"
   }
 }

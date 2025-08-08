@@ -1,11 +1,10 @@
-const js = require("@eslint/js");
-const globals = require("globals");
-const prettierConfig = require("eslint-config-prettier");
+import js from '@eslint/js'
+import globals from 'globals'
+import prettierConfig from 'eslint-config-prettier'
+import { defineConfig, globalIgnores } from 'eslint/config'
 
-module.exports = [
-  {
-    ignores: ["node_modules/", "build/", "coverage/", "dist/", "public/"],
-  },
+export default defineConfig([
+  globalIgnores(["node_modules/", "build/", "coverage/", "dist/", "public/"]),
   {
     files: ["**/*.js"],
     languageOptions: {
@@ -24,4 +23,4 @@ module.exports = [
 
   // Prettier configuration must be last to override other formatting rules
   prettierConfig,
-];
+])

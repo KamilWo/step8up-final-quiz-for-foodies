@@ -7,13 +7,15 @@ services:
     envVars:
       - key: DATABASE_URL
         sync: false
+      - key: DB_DIALECT
+        sync: false
       - key: SESSION_SECRET
         sync: false
       - key: NODE_ENV
         sync: false
     region: virginia
     buildCommand: yarn --frozen-lockfile install
-    startCommand: node server/server.js
+    startCommand: node src/server/server.js
     healthCheckPath: /healthz
     autoDeployTrigger: "off"
 version: "1"
