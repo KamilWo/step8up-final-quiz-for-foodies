@@ -37,7 +37,7 @@ psql -u root -p
 Enter your password when prompted, then create the database by running:
 
 ```sh
-source db/schema.sql;
+source db/quiz_db.sql;
 quit;
 ```
 
