@@ -1,35 +1,42 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Dashboard from "./pages/Dashboard"; // just a placeholder for the dashboard
+import Home from "./pages/Home"; // just a placeholder for the home page
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
 export default App;
+
+// This is the main application component that sets up routing and authentication context.
+// It uses React Router to define routes for the home page, login, registration, and a protected dashboard.
+// The AuthProvider wraps the entire application to provide authentication state and functions to all components.
+// The ProtectedRoute component ensures that only authenticated users can access the dashboard, redirecting unauthenticated users to the login page.
+// This structure allows for a clean separation of concerns and makes it easy to manage user authentication throughout the app.
+// The Home component can be a landing page or informational page about the quiz app.
+// The Dashboard component should be implemented to display user-specific content, such as quiz results or leaderboards.
+// The Login and Register components handle user authentication, allowing users to log in or create an account.
+// This setup is typical for a React application that requires user authentication and protected routes.
