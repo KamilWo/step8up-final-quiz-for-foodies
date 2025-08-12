@@ -40,6 +40,16 @@ User.init(
       allowNull: false,
       defaultValue: Sequelize.NOW,
     },
+    highScore: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    ranking: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10000,
+    },
   },
   {
     hooks: {
