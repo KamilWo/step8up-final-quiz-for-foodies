@@ -1,6 +1,5 @@
-const User = require("./user.mjs");
-const Question = require("./question.mjs");
-const Quiz = require("./quiz.mjs");
+import User from "./user.mjs";
+import Quiz from "./quiz.mjs";
 
 export default {
   User,
