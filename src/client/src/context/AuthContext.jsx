@@ -63,3 +63,14 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+
+// This context provides authentication functionality including login, registration, and logout.
+// It manages user state and token storage in localStorage.
+// The API base URL can be configured via environment variables, defaulting to "/api".
+// The `AuthProvider` wraps the application to provide auth context to all components.
+// The `useAuth` hook allows easy access to authentication methods and user state throughout the app.
+// The `login` and `register` methods handle user authentication and registration, respectively.
+// The `logout` method clears the user and token state, effectively logging the user out.
+// This setup is typical for React applications that require user authentication and session management.
+// The context can be expanded to include additional user-related functionality, such as fetching user profile data or updating user information.
+// The context can also be adapted to handle different authentication strategies, such as OAuth or JWT.
