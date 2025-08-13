@@ -4,6 +4,5 @@ const Quiz = require("./quiz.mjs");
 
 export default {
   User,
-  Question,
   Quiz,
 };
