@@ -5,6 +5,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Footer from "./components/Footer"; // import the footer
+import About from "./pages/About"; // import the About page
 import Dashboard from "./pages/Dashboard"; // just a placeholder for the dashboard
 import Home from "./pages/Home"; // just a placeholder for the home page
 
@@ -21,6 +22,7 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
+                <About />
                 <Footer />
               </ProtectedRoute>
             }
