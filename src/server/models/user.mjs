@@ -1,6 +1,6 @@
 import {DataTypes, Model, Sequelize} from "sequelize";
 import bcrypt from "bcrypt";
-import sequelize from "../config/sequelize";
+import sequelize from "../config/sequelize.mjs";
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -58,18 +58,18 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
-        return updatedUserData;
+        if (updatedUserData.changed("password")) {
+          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+          return updatedUserData;
+        }
       },
     },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "User",
+    tableName: "users",
   }
 );
 
