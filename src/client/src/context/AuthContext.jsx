@@ -49,6 +49,21 @@ export const AuthProvider = ({ children }) => {
     return data;
   }
 
+  async function updatePassword({ currentPassword, newPassword }) {
+    const res = await fetch(`${API_BASE}/auth/update-password`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token ? `Bearer ${token}` : undefined,
+      },
+      body: JSON.stringify({ currentPassword, newPassword }),
+      credentials: "include",
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || "Password update failed");
+    return data;
+  }
+
   function logout() {
     // Clear token and user state
     setToken(null);
@@ -56,7 +71,9 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ user, token, login, register, logout }}>
+    <AuthContext.Provider
+      value={{ user, token, login, register, logout, updatePassword }}
+    >
       {children}
     </AuthContext.Provider>
   );
@@ -64,7 +81,7 @@ export const AuthProvider = ({ children }) => {
 
 export const useAuth = () => useContext(AuthContext);
 
-// This context provides authentication functionality including login, registration, and logout.
+// This context provides authentication functionality including login, registration, logout and update password.
 // It manages user state and token storage in localStorage.
 // The API base URL can be configured via environment variables, defaulting to "/api".
 // The `AuthProvider` wraps the application to provide auth context to all components.
