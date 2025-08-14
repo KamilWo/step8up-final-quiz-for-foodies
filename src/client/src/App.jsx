@@ -4,6 +4,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Footer from "./components/Footer"; // import the footer
 import Dashboard from "./pages/Dashboard"; // just a placeholder for the dashboard
 import Home from "./pages/Home"; // just a placeholder for the home page
 
@@ -20,6 +21,7 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
+                <Footer />
               </ProtectedRoute>
             }
           />
