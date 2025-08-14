@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function ChangePassword() {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const auth = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage("");
     if (newPassword !== confirmPassword) {
       setMessage("New passwords do not match.");
       return;
@@ -17,8 +21,18 @@ export default function ChangePassword() {
       setMessage("Please fill in all fields.");
       return;
     }
-    // TODO: Call API to update password here
-    setMessage("Password updated successfully!"); // Replace with actual API response
+    setLoading(true);
+    try {
+      await auth.updatePassword({ currentPassword, newPassword });
+      setMessage("Password updated successfully!");
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+    } catch (err) {
+      setMessage(err.message || "Password update failed.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -55,7 +69,9 @@ export default function ChangePassword() {
           />
         </label>
         <br />
-        <button type="submit">Update Password</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Updating..." : "Update Password"}
+        </button>
       </form>
       {message && <p>{message}</p>}
       <nav>

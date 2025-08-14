@@ -29,9 +29,12 @@ export default function Settings() {
       {/* <p>
         Logged in as <strong>{user?.name || user?.email}</strong>
       </p> */}
-      <p>
-        <Link to="/change-password">Change your password</Link>
-      </p>
+      <div>
+        <h2>Account</h2>
+        <p>
+          <Link to="/change-password">Change your password</Link>
+        </p>
+      </div>
       <nav>
         <Link to="/">Back to Home</Link> |{" "}
         {/* <button onClick={logout}>Logout</button> */}
