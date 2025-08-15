@@ -22,11 +22,11 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <ProtectedRoute>
+              <>
                 <Dashboard />
                 <About />
                 <Footer />
-              </ProtectedRoute>
+              </>
             }
           />
           <Route path="/settings" element={<Settings />} />
