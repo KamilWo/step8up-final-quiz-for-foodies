@@ -4,8 +4,11 @@ import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Footer from "./components/Footer"; // import the footer
 import Dashboard from "./pages/Dashboard"; // just a placeholder for the dashboard
 import Home from "./pages/Home"; // just a placeholder for the home page
+import Settings from "./pages/Settings";
+import ChangePassword from "./pages/ChangePassword";
 
 function App() {
   return (
@@ -20,9 +23,12 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
+                <Footer />
               </ProtectedRoute>
             }
           />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/change-password" element={<ChangePassword />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
@@ -40,3 +46,7 @@ export default App;
 // The Dashboard component should be implemented to display user-specific content, such as quiz results or leaderboards.
 // The Login and Register components handle user authentication, allowing users to log in or create an account.
 // This setup is typical for a React application that requires user authentication and protected routes.
+// The Settings component allows users to change their account settings, such as password or email.
+// It is protected and can only be accessed by authenticated users.
+// The ChangePassword component allows users to change their password.
+// It should be implemented to handle password change functionality, including form validation and API integration.
