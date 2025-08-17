@@ -37,6 +37,23 @@ function App() {
   );
 }
 
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div className="app-container">
+      <Header />
+      <div className="dashboard-body">
+        <Sidebar />
+        <main className="main-content-area">
+          <h1>Main Content Dashboard</h1>
+          <p>Your dashboard content goes here.</p>
+        </main>
+      </div>
+    </div>
+  );
+}
+
 export default App;
 
 // This is the main application component that sets up routing and authentication context.

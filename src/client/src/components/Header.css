@@ -1,0 +1,36 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: var(--light-color);
+  border-bottom: 1px solid var(--stroke-color);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  max-width: 150px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.action-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-link {
+  color: var(--text-color);
+  transition: color 0.2s;
+}
+
+.icon-link:hover {
+  color: var(--dark-color);
+}
+.header-icon {
+  font-size: 24px;
+}
