@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Leaderboard from "../components/Leaderboard";
 import CardBox from "../components/CardBox";
+import Question from "../components/Question";
 
 export default function Dashboard() {
   const { user, logout } = useAuth();
