@@ -1,0 +1,107 @@
+/* Container */
+.leaderboard-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+/* Category Tabs */
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-tab {
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.category-tab:hover {
+  background-color: #e5e7eb;
+}
+
+.category-tab.active {
+  background-color: #fef08a;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Top Players */
+.top-player-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.75rem;
+}
+
+.top-player-rank {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-right: 0.75rem;
+}
+
+.top-player-name {
+  font-weight: 600;
+}
+
+.top-player-score {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* User Rankings */
+.user-ranking-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: #f9fafb;
+}
+
+.user-ranking-card.current-user {
+  background: #fef9c3;
+  border-left: 4px solid #facc15;
+}
+
+.user-rank {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #9ca3af;
+  margin-right: 0.75rem;
+}
+
+.user-name {
+  font-size: 0.95rem;
+}
+
+.user-name.current {
+  font-weight: 700;
+  color: #854d0e;
+}
+
+.user-score {
+  font-weight: 500;
+}
+
+.divider {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
