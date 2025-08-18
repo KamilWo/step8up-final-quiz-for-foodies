@@ -1,0 +1,129 @@
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  background-color: var(--tertiary-color);
+  padding: 30px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--stroke-color);
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #343a40;
+}
+
+.main-links-container {
+  flex-grow: 1;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--dark-color);
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-icon {
+  font-size: 20px;
+}
+
+.sidebar ul li a:hover {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  font-weight: bold;
+}
+
+.sidebar ul li a:active {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+.account-section {
+  position: relative;
+  padding-top: 20px;
+  margin-top: auto;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #ccc;
+  border: 2px solid var(--dark-color);
+}
+
+.user-name {
+  color: var(--dark-color);
+}
+
+.dropdown-menu {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: var(--tertiary-color);
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 5px;
+  min-width: 150px;
+}
+
+.account-section:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: var(--dark-color);
+}
+
+.dropdown-menu li:hover {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  font-weight: bold;
+}
+
+.menu-icon {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-right: 5px;
+  background-color: var(--light-color);
+  padding: 2%;
+  border-radius: 4px;
+}
+
+.menu-item:hover .menu-icon {
+  color: var(--light-color);
+  background-color: var(--primary-color);
+  padding: 2%;
+  border-radius: 4px;
+}
+
+.menu-item:active .menu-icon {
+  color: var(--light-color);
+  background-color: var(--primary-color);
+  padding: 2%;
+  border-radius: 4px;
+}
