@@ -28,9 +28,13 @@ function App() {
             path="/dashboard"
             element={
               <>
-                <Dashboard />
                 <Header />
-                <Sidebar />
+                <div className="main-container">
+                  <Sidebar />
+                  <main className="content-area">
+                    <Dashboard />
+                  </main>
+                </div>
                 <Footer />
               </>
             }
@@ -39,9 +43,13 @@ function App() {
             path="/leaderboard"
             element={
               <>
-                <Leaderboard />
                 <Header />
-                <Sidebar />
+                <div className="main-container">
+                  <Sidebar />
+                  <main className="content-area">
+                    <Leaderboard />
+                  </main>
+                </div>
                 <Footer />
               </>
             }
@@ -50,8 +58,13 @@ function App() {
             path="/about"
             element={
               <>
-                <About />
                 <Header />
+                <div className="main-container">
+                  <Sidebar />
+                  <main className="content-area">
+                    <About />
+                  </main>
+                </div>
                 <Footer />
               </>
             }

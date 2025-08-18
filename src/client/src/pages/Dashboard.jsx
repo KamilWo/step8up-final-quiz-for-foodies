@@ -10,14 +10,14 @@ export default function Dashboard() {
   return (
     <main style={{ padding: "2rem" }}>
       <CardBox />
-      <h1>Dashboard</h1>
+      {/*       <h1>Dashboard</h1>
       <p>
         Logged in as <strong>{user?.name || user?.email}</strong>
       </p>
       <nav>
         <Link to="/">Back to Home</Link> |{" "}
         <button onClick={logout}>Logout</button>
-      </nav>
+      </nav> */}
     </main>
   );
 }

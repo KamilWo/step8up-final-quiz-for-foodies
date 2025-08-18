@@ -3,32 +3,32 @@ import "./CardBox.css";
 
 function CardBox() {
   return (
-    <div class="card-box">
-      <div class="card-header">
-        <div class="card-title-box">
-          <div class="card-title-icon">
+    <div className="card-box">
+      <div className="card-header">
+        <div className="card-title-box">
+          <div className="card-title-icon">
             <img
               src="src/assets/earth-africa.svg"
               alt="Global Cuisine Icon"
             ></img>
           </div>
-          <div class="card-title-text">
-            <div class="card-title">Global Cuisine</div>
-            <div class="card-title-description">Difficulty level: Easy</div>
+          <div className="card-title-text">
+            <div className="card-title">Global Cuisine</div>
+            <div className="card-title-description">Difficulty level: Easy</div>
           </div>
         </div>
-        <div class="card-header-score">
-          <div class="card-header-score-text">HighScore</div>
-          <div class="card-header-score-value">192</div>
+        <div className="card-header-score">
+          <div className="card-header-score-text">HighScore</div>
+          <div className="card-header-score-value">192</div>
         </div>
       </div>
       <img
         src="src\assets\Global-cuisine.jpg"
         alt="Global Cuisine Banner"
-        class="card-banner-img"
+        className="card-banner-img"
       />
-      <div class="card-content">
-        <div class="card-content-text">
+      <div className="card-content">
+        <div className="card-content-text">
           <p>
             Ready for a trip around the world? ✈️🌍 No passport required! From
             the sizzling street food of Mexico to the savory curries of India,
@@ -39,11 +39,11 @@ function CardBox() {
             knowledge to the test!
           </p>
         </div>
-        <div class="card-rules">
-          <div class="card-rules-icon">
+        <div className="card-rules">
+          <div className="card-rules-icon">
             <img src="src/assets/stopwatch.svg" alt="stopwatch"></img>
           </div>
-          <div class="card-rules-text">
+          <div className="card-rules-text">
             <p>
               You have <b>60 seconds</b> to answer as many questions as you can.
               Speed is key, but be careful —{" "}
@@ -51,7 +51,7 @@ function CardBox() {
             </p>
           </div>
         </div>
-        <button class="card-button">Start Quiz</button>
+        <button className="card-button">Start Quiz</button>
       </div>
     </div>
   );
