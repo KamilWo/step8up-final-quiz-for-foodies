@@ -5,6 +5,10 @@ import { fileURLToPath } from 'url' //To resolve __dirname in ES Modules
 import cors from "cors"; // For frontend/backend communication in development
 import allRoutes from "./routes/index.mjs"; // Import the main router
 import errorHandler from "./middleware/errorHandler.mjs"; // Global error handling middleware
+// Swagger documentation setup
+import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+import swaggerOptions from "./config/swagger.mjs";
 
 // Replicate __dirname functionality in ES Modules for path resolution
 const __filename = fileURLToPath(import.meta.url);
@@ -24,6 +28,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the 'public' directory (for CSS, JS, images)
 app.use(express.static(path.join(__dirname, "../client/dist")));
+
+// Swagger setup
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Mount all routes from the main router
 app.use("/", allRoutes);
