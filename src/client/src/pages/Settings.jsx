@@ -4,24 +4,6 @@ import { useAuth } from "../context/AuthContext";
 
 export default function Settings() {
   // const { user, logout } = useAuth();
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (newPassword !== confirmPassword) {
-      setMessage("New passwords do not match.");
-      return;
-    }
-    if (!currentPassword || !newPassword) {
-      setMessage("Please fill in all fields.");
-      return;
-    }
-    // WANI TODO: Call API to update password here
-    setMessage("Password updated successfully!"); // Replace with actual API response
-  };
 
   return (
     <main style={{ padding: "2rem" }}>
