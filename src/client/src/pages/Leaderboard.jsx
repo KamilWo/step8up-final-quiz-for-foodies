@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import "./Leaderboard.css";
 
 // Mock API function (simulates server response)
 const mockFetchLeaderboard = (category) => {
@@ -63,6 +66,8 @@ const mockFetchLeaderboard = (category) => {
 };
 
 const Leaderboard = () => {
+  const { user, logout } = useAuth();
+
   const categories = [
     { key: "global-cuisine", label: "GLOBAL CUISINE" },
     { key: "ingredients-flavour", label: "INGREDIENTS & FLAVOUR" },
@@ -70,9 +75,7 @@ const Leaderboard = () => {
     { key: "baking-desserts", label: "BAKING & DESSERTS" },
   ];
 
-  const [selectedCategory, setSelectedCategory] = useState(
-    "ingredients-flavour"
-  );
+  const [selectedCategory, setSelectedCategory] = useState("global-cuisine");
   const [leaderboard, setLeaderboard] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -111,89 +114,92 @@ const Leaderboard = () => {
   }, [selectedCategory]);
 
   return (
-    <div className="max-w-2xl mx-auto p-4">
-      <p className="text-gray-500 text-sm mb-4">View your global rankings</p>
+    <>
+      <div className="leaderboard-container">
+        <h1>Leaderboard</h1>
+        <p>
+          Logged in as <strong>{user?.name || user?.email}</strong>
+        </p>
+        <p className="muted-text">View your global rankings</p>
 
-      {/* Category Tabs */}
-      <div className="flex space-x-2 mb-6 flex-wrap">
-        {categories.map((cat) => (
-          <button
-            key={cat.key}
-            onClick={() => setSelectedCategory(cat.key)}
-            className={`px-4 py-1 rounded-full text-sm transition ${
-              selectedCategory === cat.key
-                ? "bg-yellow-200 text-black font-semibold"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-            }`}
-          >
-            {cat.label}
-          </button>
-        ))}
+        {/* Category Tabs */}
+        <div className="category-tabs">
+          {categories.map((cat) => (
+            <button
+              key={cat.key}
+              onClick={() => setSelectedCategory(cat.key)}
+              className={`category-tab ${
+                selectedCategory === cat.key ? "active" : ""
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {loading ? (
+          <div className="loading-text">Loading leaderboard...</div>
+        ) : error ? (
+          <div className="error-text">{error}</div>
+        ) : (
+          leaderboard && (
+            <>
+              {/* Top Players */}
+              <div>
+                {leaderboard.topPlayers.map((player) => (
+                  <div key={player.rank} className="top-player-card">
+                    <div className="row">
+                      <span className="top-player-rank">#{player.rank}</span>
+                      <span className="top-player-name">{player.name}</span>
+                    </div>
+                    <div className="top-player-score">
+                      <span>
+                        {player.medal === "gold" && "🥇"}
+                        {player.medal === "silver" && "🥈"}
+                        {player.medal === "bronze" && "🥉"}
+                      </span>
+                      {player.score}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Divider */}
+              <hr className="divider" />
+
+              {/* User Rankings */}
+              <div>
+                {leaderboard.userRankings.map((player) => (
+                  <div
+                    key={player.rank}
+                    className={`user-ranking-card ${
+                      player.currentUser ? "current-user" : ""
+                    }`}
+                  >
+                    <div className="row">
+                      <span className="user-rank">#{player.rank}</span>
+                      <span
+                        className={`user-name ${
+                          player.currentUser ? "current" : ""
+                        }`}
+                      >
+                        {player.name}
+                      </span>
+                    </div>
+                    <span className="user-score">{player.score}</span>
+                  </div>
+                ))}
+              </div>
+            </>
+          )
+        )}
+
+        <nav>
+          <Link to="/">Back to Home</Link> |{" "}
+          <button onClick={logout}>Logout</button>
+        </nav>
       </div>
-
-      {loading ? (
-        <div className="text-center py-6">Loading leaderboard...</div>
-      ) : error ? (
-        <div className="text-red-500 text-center">{error}</div>
-      ) : (
-        leaderboard && (
-          <>
-            {/* Top Players */}
-            <div className="space-y-3 mb-6">
-              {leaderboard.topPlayers.map((player) => (
-                <div
-                  key={player.rank}
-                  className="flex justify-between items-center bg-white shadow rounded-lg p-3"
-                >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-lg font-bold">#{player.rank}</span>
-                    <span className="font-semibold">{player.name}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <span>
-                      {player.medal === "gold" && "🥇"}
-                      {player.medal === "silver" && "🥈"}
-                      {player.medal === "bronze" && "🥉"}
-                    </span>
-                    <span className="font-bold">{player.score}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* User Rankings */}
-            <div className="space-y-2">
-              {leaderboard.userRankings.map((player) => (
-                <div
-                  key={player.rank}
-                  className={`flex justify-between items-center rounded-lg p-2 ${
-                    player.currentUser
-                      ? "bg-yellow-100 border-l-4 border-yellow-500"
-                      : "bg-gray-50"
-                  }`}
-                >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-sm font-bold text-gray-400">
-                      #{player.rank}
-                    </span>
-                    <span
-                      className={`${
-                        // Note: The current user’s ID will be passed (json method post),
-                        // so the backend can return their position highlighted (with "currentUser": true).
-                        player.currentUser ? "font-bold text-yellow-800" : ""
-                      }`}
-                    >
-                      {player.name}
-                    </span>
-                  </div>
-                  <span className="font-medium">{player.score}</span>
-                </div>
-              ))}
-            </div>
-          </>
-        )
-      )}
-    </div>
+    </>
   );
 };
 

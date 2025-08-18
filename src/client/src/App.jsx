@@ -12,6 +12,7 @@ import {
   Login,
   Register,
   Settings,
+  Leaderboard,
 } from "./pages";
 
 function App() {
@@ -28,6 +29,17 @@ function App() {
             element={
               <>
                 <Dashboard />
+                <Header />
+                <Sidebar />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/leaderboard"
+            element={
+              <>
+                <Leaderboard />
                 <Header />
                 <Sidebar />
                 <Footer />

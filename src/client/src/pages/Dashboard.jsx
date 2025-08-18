@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import Leaderboard from "../components/Leaderboard";
 import CardBox from "../components/CardBox";
 import Question from "../components/Question";
 
@@ -11,11 +10,10 @@ export default function Dashboard() {
   return (
     <main style={{ padding: "2rem" }}>
       <CardBox />
-      <h1>Leaderboard</h1>
+      <h1>Dashboard</h1>
       <p>
         Logged in as <strong>{user?.name || user?.email}</strong>
       </p>
-      <Leaderboard />
       <nav>
         <Link to="/">Back to Home</Link> |{" "}
         <button onClick={logout}>Logout</button>
