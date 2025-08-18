@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import QuizOutlinedIcon from "@mui/icons-material/QuizOutlined";
 import LeaderboardOutlinedIcon from "@mui/icons-material/LeaderboardOutlined";
@@ -25,8 +26,12 @@ const AccountSection = ({ userName }) => {
       </div>
       {isDropdownVisible && (
         <ul className="dropdown-menu">
-          <li>Account Settings</li>
-          <li>Log Out</li>
+          <Link href="/settings" passHref>
+            <li>Account Settings</li>
+          </Link>
+          <Link href="/logout" passHref>
+            <li>Log Out</li>
+          </Link>
         </ul>
       )}
     </div>

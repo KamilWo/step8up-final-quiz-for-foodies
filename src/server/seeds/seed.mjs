@@ -1,17 +1,15 @@
 import sequelize from "../config/sequelize.mjs";
-import models from "../models/index.mjs";
+import { User, Quiz } from "../models/index.mjs";
 import seedQuizzes from "./quizzes_with_options.json" with { type: "json" };
-
-const { User, Quiz } = models;
 
 const seedUsers = [
   {
-    username: "testuser1",
+    name: "Test User1",
     email: "test1@example.com",
     password: "password123",
   },
   {
-    username: "testuser2",
+    name: "Test User2",
     email: "test2@example.com",
     password: "password456",
   },
