@@ -5,6 +5,9 @@ import express from "express";
 import path from "path";
 import {fileURLToPath} from 'url' // To resolve __dirname in ES Modules
 import sequelize from "../config/sequelize.mjs"; // Connect to the database for health check
+// Import API routes
+import authApiRoutes from "./api/auth.mjs";
+import quizzesApiRoutes from "./api/quizzes.mjs";
 
 // Replicate __dirname functionality in ES Modules for path resolution
 const __filename = fileURLToPath(import.meta.url);
@@ -26,7 +29,7 @@ router.get("/healthz", async (req, res) => {
 });
 
 // Mount API routes under a specific prefixes
-// router.use("/api/auth", authApiRoutes);
+router.use("/api/auth", authApiRoutes);
 
 // A simple welcome route for the root API path
 router.get("/api", (req, res) => {
