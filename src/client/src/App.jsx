@@ -30,7 +30,16 @@ function App() {
                 <Dashboard />
                 <Header />
                 <Sidebar />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
                 <About />
+                <Header />
                 <Footer />
               </>
             }
