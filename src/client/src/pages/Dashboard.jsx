@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Leaderboard from "../components/Leaderboard";
+import CardBox from "../components/CardBox";
 
 export default function Dashboard() {
   const { user, logout } = useAuth();
 
   return (
     <main style={{ padding: "2rem" }}>
+      <CardBox />
       <h1>Leaderboard</h1>
       <p>
         Logged in as <strong>{user?.name || user?.email}</strong>
