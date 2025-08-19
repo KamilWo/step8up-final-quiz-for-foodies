@@ -48,24 +48,24 @@ function Sidebar() {
     <nav className="sidebar">
       <div className="main-links-container">
         <ul>
-          <li>
+          {/* <li>
             <a href="/" className="menu-item">
               <InfoOutlinedIcon className="menu-icon" />
               <span>Home</span>
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="/dashboard" className="menu-item">
               <InfoOutlinedIcon className="menu-icon" />
               <span>Dashboard</span>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="/quiz" className="menu-item">
               <QuizOutlinedIcon className="menu-icon" />
               <span>Quizzes</span>
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="/leaderboard" className="menu-item">
               <LeaderboardOutlinedIcon className="menu-icon" />
