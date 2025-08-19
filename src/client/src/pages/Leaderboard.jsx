@@ -70,9 +70,9 @@ const Leaderboard = () => {
 
   const categories = [
     { key: "global-cuisine", label: "GLOBAL CUISINE" },
-    { key: "ingredients-flavour", label: "INGREDIENTS & FLAVOUR" },
-    { key: "cooking-techniques", label: "COOKING TECHNIQUES" },
-    { key: "baking-desserts", label: "BAKING & DESSERTS" },
+    // { key: "ingredients-flavour", label: "INGREDIENTS & FLAVOUR" },
+    // { key: "cooking-techniques", label: "COOKING TECHNIQUES" },
+    // { key: "baking-desserts", label: "BAKING & DESSERTS" },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("global-cuisine");
@@ -194,10 +194,10 @@ const Leaderboard = () => {
           )
         )}
 
-        <nav>
+        {/* <nav>
           <Link to="/">Back to Home</Link> |{" "}
           <button onClick={logout}>Logout</button>
-        </nav>
+        </nav> */}
       </div>
     </>
   );
