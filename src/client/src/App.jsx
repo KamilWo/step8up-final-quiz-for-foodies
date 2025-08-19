@@ -13,6 +13,7 @@ import {
   Register,
   Settings,
   Leaderboard,
+  Quiz,
 } from "./pages";
 
 function App() {
@@ -24,6 +25,21 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route
+            path="/quiz"
+            element={
+              <>
+                <Header />
+                <div className="main-container">
+                  <Sidebar />
+                  <main className="content-area">
+                    <Quiz />
+                    <Footer />
+                  </main>
+                </div>
+              </>
+            }
+          />
           <Route
             path="/dashboard"
             element={
