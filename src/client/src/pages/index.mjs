@@ -6,3 +6,4 @@ export { default as ChangePassword } from "./ChangePassword";
 export { default as Settings } from "./Settings";
 export { default as Login } from "./auth/Login";
 export { default as Register } from "./auth/Register";
+export { default as Quiz } from "./Quiz";
