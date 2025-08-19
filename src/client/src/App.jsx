@@ -10,6 +10,7 @@ import {
   Dashboard,
   Home,
   Login,
+  Quiz,
   Register,
   Settings,
   Leaderboard,
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/quiz" element={<Quiz />} />
           <Route
             path="/dashboard"
             element={

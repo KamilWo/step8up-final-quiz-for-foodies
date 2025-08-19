@@ -1,6 +1,7 @@
 export { default as Home } from "./Home";
 export { default as About } from "./About";
 export { default as Dashboard } from "./Dashboard";
+export { default as Quiz } from "./Quiz";
 export { default as Leaderboard } from "./Leaderboard";
 export { default as ChangePassword } from "./ChangePassword";
 export { default as Settings } from "./Settings";

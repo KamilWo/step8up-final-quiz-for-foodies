@@ -76,6 +76,8 @@
   },
   "dependencies": {
     "concurrently": "^9.1.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "yarn": "^1.22.22"
   },
   "devDependencies": {
