@@ -1,5 +1,6 @@
 import React from "react";
 import "./Question.css";
+import earthAfricaOrange from "../assets/earth-africa-orange.svg";
 
 function Question({
   category,
@@ -15,10 +16,7 @@ function Question({
       <div class="question-header">
         <div class="question-title-box">
           <div class="question-title-icon">
-            <img
-              src="src/assets/earth-africa-orange.svg"
-              alt="Global Cuisine Icon"
-            ></img>
+            <img src={earthAfricaOrange} alt="Global Cuisine Icon"></img>
           </div>
           <div class="card-title">{category}</div>
         </div>
