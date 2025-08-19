@@ -76,7 +76,7 @@ export default function Register() {
           />
         </label>
         <button type="submit" disabled={loading}>
-          {loading ? "Creating…" : "Create account"}
+          {loading ? "Creating..." : "Create account"}
         </button>
       </form>
     </main>

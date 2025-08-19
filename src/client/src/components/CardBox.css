@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card-box {
+  display: flex;
+  flex-direction: column;
+  max-width: 1082px;
+  background-color: #ffffff;
+  border: 1px solid #0a0c3814;
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.05);
+  margin: 20px;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 40px;
+  align-items: center;
+}
+.card-title-box {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.card-title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.card-title-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 3px;
+}
+
+.card-title {
+  font-family: Bebas Neue;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.card-title-description {
+  font-family: Roboto Condensed;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-color);
+}
+
+.card-header-score {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 8px;
+}
+
+.card-header-score-text {
+  font-family: Roboto Condensed;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: right;
+}
+
+.card-header-score-value {
+  font-family: Bebas Neue;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 40px;
+  line-height: 24px;
+  color: var(--secondary-color);
+}
+
+.card-banner-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px 40px 40px;
+  gap: 10px;
+}
+
+.card-content-text {
+  font-family: Roboto Condensed;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 155%;
+  color: var(--text-color);
+}
+
+.card-rules {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  background-color: var(--light-color);
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: var(--secondary-color);
+  padding: 10px 35px;
+  align-items: center;
+}
+
+.card-rules-text {
+  font-family: Roboto Condensed;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 20px;
+  line-height: 155%;
+  letter-spacing: 0%;
+  color: var(--dark-color);
+}
+
+.card-button {
+  display: flex;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  border-radius: 4px;
+  opacity: 1;
+  padding: 15px 12px;
+  width: 129px;
+  align-self: flex-end;
+  justify-content: center;
+  margin-top: 10px;
+
+  font-family: Bebas Neue;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 20px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+}

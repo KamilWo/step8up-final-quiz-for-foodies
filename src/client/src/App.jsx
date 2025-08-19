@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Footer from "./components/Footer"; // import the footer
-import Dashboard from "./pages/Dashboard"; // just a placeholder for the dashboard
-import Home from "./pages/Home"; // just a placeholder for the home page
-import Settings from "./pages/Settings";
-import ChangePassword from "./pages/ChangePassword";
+// Components
+import { Header, Sidebar, Footer, ProtectedRoute } from "./components";
+// Pages
+import {
+  About,
+  ChangePassword,
+  Dashboard,
+  Home,
+  Login,
+  Register,
+  Settings,
+  Leaderboard,
+} from "./pages";
 
 function App() {
+  const [count, setCount] = useState(0);
   return (
     <AuthProvider>
       <BrowserRouter>
@@ -21,10 +27,46 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <ProtectedRoute>
-                <Dashboard />
-                <Footer />
-              </ProtectedRoute>
+              <>
+                <Header />
+                <div className="main-container">
+                  <Sidebar />
+                  <main className="content-area">
+                    <Dashboard />
+                    <Footer />
+                  </main>
+                </div>
+              </>
+            }
+          />
+          <Route
+            path="/leaderboard"
+            element={
+              <>
+                <Header />
+                <div className="main-container">
+                  <Sidebar />
+                  <main className="content-area">
+                    <Leaderboard />
+                    <Footer />
+                  </main>
+                </div>
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
+                <Header />
+                <div className="main-container">
+                  <Sidebar />
+                  <main className="content-area">
+                    <About />
+                    <Footer />
+                  </main>
+                </div>
+              </>
             }
           />
           <Route path="/settings" element={<Settings />} />
