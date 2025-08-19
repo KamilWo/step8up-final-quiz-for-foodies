@@ -18,14 +18,14 @@ const rebuild = process.argv[2] === "--rebuild";
 const startServer = async () => {
   try {
     // Authenticate the database connection
-    //await sequelize.authenticate();
+    await sequelize.authenticate();
     console.log("Database connection has been established successfully.");
 
     // Sync all defined models to the database.
     // { force: false } is safe for production; it creates tables if they don't exist
     // but does not drop them. Seed script will use { force: true }
     // to reset the database during development with --rebuild
-    //await sequelize.sync({ force: rebuild });
+    await sequelize.sync({ force: rebuild });
     console.log("All models were synchronized successfully.");
 
     // Start listening for requests only after the database is ready
