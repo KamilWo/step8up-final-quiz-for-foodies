@@ -1,6 +1,7 @@
 import React from "react";
 import "./Question.css";
 import earthAfricaOrange from "../assets/earth-africa-orange.svg";
+import QuizTimer from "../components/QuizTimer";
 
 function Question({
   category,
