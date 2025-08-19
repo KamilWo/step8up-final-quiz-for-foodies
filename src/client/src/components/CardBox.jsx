@@ -1,10 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./CardBox.css";
 import earthAfrica from "../assets/earth-africa.svg";
 import globalCuisine from "../assets/Global-cuisine.jpg";
 import stopwatch from "../assets/stopwatch.svg";
 
 function CardBox() {
+  const navigate = useNavigate();
+
+  const handleStartQuiz = () => {
+    navigate("/quiz");
+  };
+
   return (
     <div className="card-box">
       <div className="card-header">
@@ -51,7 +58,7 @@ function CardBox() {
             </p>
           </div>
         </div>
-        <button href="/quiz" className="card-button">
+        <button onClick={handleStartQuiz} className="card-button">
           Start Quiz
         </button>
       </div>
