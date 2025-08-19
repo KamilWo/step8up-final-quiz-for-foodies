@@ -7,7 +7,7 @@ export default function Quiz() {
   const [question, setQuestions] = useState(data);
   const [highscore, setHighscore] = useState(300);
 
-  function random_question() {
+  const random_question = () => {
     // Data not empty
     if (data.length === 0) {
       console.warn("No quiz data available to select a random question.");
@@ -15,7 +15,7 @@ export default function Quiz() {
     }
     const randomIndex = Math.floor(Math.random() * data.length);
     setQuestions(data[randomIndex]); // Update the state with the randomly selected question
-  }
+  };
 
   // Call random_question when the component mounts
   useEffect(() => {
