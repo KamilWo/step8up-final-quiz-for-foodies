@@ -15,31 +15,31 @@ function Question({
   onTimeUp,
 }) {
   return (
-    <div class="card-box">
-      <div class="question-header">
-        <div class="question-title-box">
-          <div class="question-title-icon">
+    <div className="card-box">
+      <div className="question-header">
+        <div className="question-title-box">
+          <div className="question-title-icon">
             <img src={earthAfricaOrange} alt="Global Cuisine Icon"></img>
           </div>
-          <div class="card-title">{category}</div>
+          <div className="card-title">{category}</div>
         </div>
-        <div class="question-header-score">
-          <div class="card-header-score-text">HighScore</div>
-          <div class="card-header-score-value">{highscore}</div>
+        <div className="question-header-score">
+          <div className="card-header-score-text">HighScore</div>
+          <div className="card-header-score-value">{highscore}</div>
         </div>
       </div>
-      <div class="card-content">
-        <div class="question-timer">
+      <div className="card-content">
+        <div className="question-timer">
           <QuizTimer duration={duration} onTimeUp={onTimeUp} />
         </div>
-        <div class="question-content-text">
+        <div className="question-content-text">
           <p>{question}</p>
         </div>
-        <div class="question-button-box">
-          <button class="question-button">{option1}</button>
-          <button class="question-button">{option2}</button>
-          <button class="question-button">{option3}</button>
-          <button class="question-button">{option4}</button>
+        <div className="question-button-box">
+          <button className="question-button">{option1}</button>
+          <button className="question-button">{option2}</button>
+          <button className="question-button">{option3}</button>
+          <button className="question-button">{option4}</button>
         </div>
       </div>
     </div>
