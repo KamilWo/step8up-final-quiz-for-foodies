@@ -1,5 +1,6 @@
 import React from "react";
 import "./Question.css";
+import QuizTimer from "./QuizTimer";
 
 function Question({
   category,
@@ -9,6 +10,8 @@ function Question({
   option2,
   option3,
   option4,
+  duration,
+  onTimeUp,
 }) {
   return (
     <div class="card-box">
@@ -28,6 +31,9 @@ function Question({
         </div>
       </div>
       <div class="card-content">
+        <div class="question-timer">
+          <QuizTimer duration={duration} onTimeUp={onTimeUp} />
+        </div>
         <div class="question-content-text">
           <p>{question}</p>
         </div>
