@@ -9,6 +9,7 @@ import { useAuth } from "../context/AuthContext";
 
 const AccountSection = ({ userName }) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const { logout } = useAuth();
 
   return (
     <div
@@ -31,7 +32,7 @@ const AccountSection = ({ userName }) => {
           <Link to="/settings">
             <li>Account Settings</li>
           </Link>
-          <Link to="/logout">
+          <Link onClick={logout}>
             <li>Log Out</li>
           </Link>
         </ul>

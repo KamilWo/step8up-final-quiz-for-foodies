@@ -1,5 +1,5 @@
 import sequelize from "../config/sequelize.mjs";
-import { User, Quiz } from "../models/index.mjs";
+import { User, Quiz, Rank } from "../models/index.mjs";
 import seedQuizzes from "./quizzes_with_options.json" with { type: "json" };
 
 const seedUsers = [
@@ -13,6 +13,19 @@ const seedUsers = [
     email: "test2@example.com",
     password: "password456",
   },
+];
+
+const seedRanks = [
+  // User 1
+  { user_id: 1, category: "Global Cuisine", score: 85 },
+  { user_id: 1, category: "Ingredients & Flavour", score: 92 },
+  { user_id: 1, category: "Cooking Techniques", score: 78 },
+  { user_id: 1, category: "Baking & Desserts", score: 88 },
+  // User 2
+  { user_id: 2, category: "Global Cuisine", score: 72 },
+  { user_id: 2, category: "Ingredients & Flavour", score: 81 },
+  { user_id: 2, category: "Cooking Techniques", score: 65 },
+  { user_id: 2, category: "Baking & Desserts", score: 79 },
 ];
 
 const seedDatabase = async () => {
@@ -29,6 +42,10 @@ const seedDatabase = async () => {
     // Seed quizzes
     await Quiz.bulkCreate(seedQuizzes);
     console.log("Quizzes seeded!");
+
+    // Seed ranks
+    await Rank.bulkCreate(seedRanks);
+    console.log("Ranks seeded!");
 
     console.log("\nDatabase seeding completed successfully!\n");
     process.exit(0);
