@@ -6,6 +6,7 @@ import QuizTimer from "../components/QuizTimer";
 export default function Quiz() {
   const [question, setQuestions] = useState(data);
   const [highscore, setHighscore] = useState(300);
+  const [score, setScore] = useState(0);
 
   const random_question = () => {
     // Data not empty
@@ -24,6 +25,18 @@ export default function Quiz() {
 
   const handleTimeUp = () => {
     alert(" Time is up!");
+    // add current quiz score to database
+    // navigate back to dashboard
+  };
+
+  const handleAnswer = (selectedOption) => {
+    if (selectedOption === question.answer) {
+      setScore((prev) => prev + 1);
+      alert("Correct!");
+    } else {
+      alert("Not quite!");
+    }
+    random_question();
   };
 
   return (
@@ -31,13 +44,16 @@ export default function Quiz() {
       <Question
         question={question.question}
         category={question.category}
+        score={score}
         highscore={highscore}
         option1={question.option_01}
         option2={question.option_02}
         option3={question.option_03}
         option4={question.option_04}
+        answer={question.answer}
         duration={60}
         onTimeUp={handleTimeUp}
+        onAnswer={handleAnswer}
       ></Question>
     </>
   );
