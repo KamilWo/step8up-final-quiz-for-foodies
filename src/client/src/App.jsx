@@ -33,9 +33,9 @@ function App() {
                   <Sidebar />
                   <main className="content-area">
                     <Dashboard />
+                    <Footer />
                   </main>
                 </div>
-                <Footer />
               </>
             }
           />
@@ -48,9 +48,9 @@ function App() {
                   <Sidebar />
                   <main className="content-area">
                     <Leaderboard />
+                    <Footer />
                   </main>
                 </div>
-                <Footer />
               </>
             }
           />
@@ -63,9 +63,9 @@ function App() {
                   <Sidebar />
                   <main className="content-area">
                     <About />
+                    <Footer />
                   </main>
                 </div>
-                <Footer />
               </>
             }
           />
