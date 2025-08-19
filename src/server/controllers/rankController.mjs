@@ -56,4 +56,40 @@ const getRank = async (req, res) => {
   }
 };
 
-export { addOrUpdateRank, getRank };
+// Get leaderboard data, grouped by category
+const getLeaderboard = async (req, res) => {
+  try {
+    const categories = [
+      "Global Cuisine",
+      "Ingredients & Flavour",
+      "Cooking Techniques",
+      "Baking & Desserts",
+    ];
+
+    const leaderboard = {};
+
+    for (const category of categories) {
+      const topRanks = await Rank.findAll({
+        where: { category },
+        include: [
+          {
+            model: User,
+            attributes: ["name"],
+          },
+        ],
+        order: [["score", "DESC"]],
+        limit: 10, // Get top 10 ranks for each category
+      });
+      leaderboard[category] = topRanks;
+    }
+
+    res.json(leaderboard);
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json({ message: "Failed to retrieve leaderboard.", error: err.message });
+  }
+};
+
+export { addOrUpdateRank, getRank, getLeaderboard };
