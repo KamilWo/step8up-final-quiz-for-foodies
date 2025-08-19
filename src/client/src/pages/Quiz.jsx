@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Question from "../components/Question";
 import data from "../../../server/seeds/quizzes_with_options.json";
+import QuizTimer from "../components/QuizTimer";
 
 export default function Quiz() {
   const [question, setQuestions] = useState(data);
@@ -21,6 +22,10 @@ export default function Quiz() {
     random_question();
   }, []); // Empty dependency array ensures this runs only once on mount
 
+  const handleTimeUp = () => {
+    alert(" Time is up!");
+  };
+
   return (
     <>
       <Question
@@ -31,6 +36,8 @@ export default function Quiz() {
         option2={question.option_02}
         option3={question.option_03}
         option4={question.option_04}
+        duration={60}
+        onTimeUp={handleTimeUp}
       ></Question>
     </>
   );

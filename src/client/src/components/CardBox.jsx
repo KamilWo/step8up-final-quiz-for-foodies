@@ -51,7 +51,9 @@ function CardBox() {
             </p>
           </div>
         </div>
-        <button className="card-button">Start Quiz</button>
+        <button href="/quiz" className="card-button">
+          Start Quiz
+        </button>
       </div>
     </div>
   );
