@@ -5,7 +5,7 @@ import earthAfrica from "../assets/earth-africa.svg";
 import globalCuisine from "../assets/Global-cuisine.jpg";
 import stopwatch from "../assets/stopwatch.svg";
 
-function CardBox({ icon, title, difficulty, highscore, banner, content }) {
+function CardBox({ title, difficulty, highscore, content }) {
   const navigate = useNavigate();
 
   const handleStartQuiz = () => {
@@ -17,7 +17,7 @@ function CardBox({ icon, title, difficulty, highscore, banner, content }) {
       <div className="card-header">
         <div className="card-title-box">
           <div className="card-title-icon">
-            <img src={icon} alt="Global Cuisine Icon"></img>
+            <img src={earthAfrica} alt="Global Cuisine Icon"></img>
           </div>
           <div className="card-title-text">
             <div className="card-title">{title}</div>
@@ -30,7 +30,7 @@ function CardBox({ icon, title, difficulty, highscore, banner, content }) {
         </div>
       </div>
       <img
-        src={banner}
+        src={globalCuisine}
         alt="Global Cuisine Banner"
         className="card-banner-img"
       />
