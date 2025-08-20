@@ -5,16 +5,17 @@ import data from "../../../server/seeds/quizzes_with_options.json";
 import QuizTimer from "../components/QuizTimer";
 
 export default function Quiz() {
-  const [question, setQuestions] = useState(data);
+  const [question, setQuestion] = useState(null);
   const [highscore, setHighscore] = useState(300);
   const [score, setScore] = useState(0);
   const [showQuizEnd, setShowQuizEnd] = useState(false);
   const [feedback, setFeedback] = useState(null);
 
   // Whole quiz timer state
-  const totalQuizDuration = 60;
+  const totalQuizDuration = 60; // seconds
   const [timeLeft, setTimeLeft] = useState(totalQuizDuration);
 
+  // Global quiz countdown
   useEffect(() => {
     if (timeLeft <= 0) {
       setShowQuizEnd(true);
@@ -26,26 +27,24 @@ export default function Quiz() {
     return () => clearInterval(timerId);
   }, [timeLeft]);
 
+  // Pick a random question from data
   const random_question = () => {
-    // Data not empty
     if (data.length === 0) {
-      console.warn("No quiz data available to select a random question.");
-      return; // Set a default/null state for question
+      console.warn("No quiz data available.");
+      return;
     }
     const randomIndex = Math.floor(Math.random() * data.length);
-    setQuestions(data[randomIndex]); // Update the state with the randomly selected question
+    setQuestion(data[randomIndex]);
   };
 
-  // Call random_question when the component mounts
+  // On mount → select first question
   useEffect(() => {
     random_question();
-  }, []); // Empty dependency array ensures this runs only once on mount
-
-  const handleTimeUp = () => {
-    setShowQuizEnd(true);
-  };
+  }, []);
 
   const handleAnswer = (selectedOption) => {
+    if (!question) return;
+
     if (selectedOption === question.answer) {
       setScore((prev) => prev + 1);
       setFeedback("correct");
@@ -53,22 +52,19 @@ export default function Quiz() {
       setFeedback("wrong");
     }
 
-    random_question();
-    // Wait, then move to next question and clear feedback
+    // Move to next question after short delay
     setTimeout(() => {
+      random_question();
       setFeedback(null);
-    }, 200);
+    }, 400);
   };
 
   return (
     <>
-      {/* Render the timer at the top */}
-      <QuizTimer
-        duration={totalQuizDuration}
-        onTimeUp={handleTimeUp}
-        timeLeft={timeLeft}
-      />
-      {!showQuizEnd ? (
+      {/* Timer display */}
+      <QuizTimer duration={totalQuizDuration} timeLeft={timeLeft} />
+
+      {!showQuizEnd && question ? (
         <Question
           question={question.question}
           category={question.category}
@@ -78,14 +74,12 @@ export default function Quiz() {
           option2={question.option_02}
           option3={question.option_03}
           option4={question.option_04}
-          // duration={60}
-          // onTimeUp={handleTimeUp}
           onAnswer={handleAnswer}
           feedback={feedback}
         />
       ) : (
         <QuizEnd
-          category={question.category}
+          category={question?.category || "Quiz"}
           highscore={highscore}
           score={score}
         />

@@ -1,20 +1,4 @@
-import { useEffect, useState } from "react";
-
-function QuizTimer({ duration, onTimeUp }) {
-  const [timeLeft, setTimeLeft] = useState(duration);
-
-  useEffect(() => {
-    if (timeLeft <= 0) {
-      onTimeUp();
-      return;
-    }
-
-    const timerId = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
-    }, 1000);
-
-    return () => clearInterval(timerId);
-  }, [timeLeft, onTimeUp]);
+function QuizTimer({ duration, timeLeft }) {
   // Convert seconds into MM:SS format
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
@@ -38,7 +22,7 @@ function QuizTimer({ duration, onTimeUp }) {
       >
         <div
           style={{
-            background: progress <= 25 ? "red" : "orange",
+            background: progress <= 20 ? "red" : "orange",
             width: `${progress}%`,
             height: "100%",
             transition: "width 1s linear",
@@ -53,4 +37,3 @@ function QuizTimer({ duration, onTimeUp }) {
 }
 
 export default QuizTimer;
-// This QuizTimer component displays a countdown timer for the quiz.
