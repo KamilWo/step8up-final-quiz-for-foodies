@@ -16,7 +16,7 @@ const Header = () => {
       <header className="header-container">
         {/* Logo Section */}
         <div className="logo-container">
-          <img src={logo} alt="Your Website Logo" className="logo-image" />
+          <img src={logo} alt="Taste Trivia Logo" className="logo-image" />
         </div>
 
         {/* Action Icons Section */}

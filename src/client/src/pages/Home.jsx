@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import logo from "../assets/logo.png";
 
 export default function Home() {
   const { user, logout } = useAuth();
 
   return (
     <main style={{ padding: "2rem" }}>
-      <h1>Quiz for Foodies</h1>
+      <div className="logo">
+        <img src={logo} alt="Taste Trivia Logo" className="logo-image" />
+      </div>
       {user ? (
         <>
           <p>Welcome back, {user.name || "Foodie"}!</p>

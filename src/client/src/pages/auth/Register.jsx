@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import "./Register.css";
+import logo from "../../assets/logo.png";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -22,6 +24,7 @@ export default function Register() {
     setLoading(true);
     try {
       await auth.register({ name, email, password });
+      console.log("Registration submitted:", { name, email, password });
       navigate("/dashboard"); // or /login depending on your flow
     } catch (err) {
       setError(err.message || "Registration failed");
@@ -31,55 +34,98 @@ export default function Register() {
   }
 
   return (
-    <main>
-      <h1>Create account</h1>
-      <form onSubmit={handleSubmit} aria-describedby="error">
-        {error && (
-          <div id="error" role="alert">
-            {error}
+    <div className="register-page-container">
+      <div className="register-image-section">
+        {/* The image is handled by the CSS background property */}
+      </div>
+      <div className="register-form-section">
+        <div className="logo">
+          <img src={logo} alt="Taste Trivia Logo" className="logo-image" />
+        </div>
+        <div className="welcome-text">
+          <h1>Create your account</h1>
+          <p>
+            Create a free account to track your progress, climb the global
+            leaderboards, and unlock exclusive quiz badges. Your journey to
+            trivia stardom starts here!
+          </p>
+        </div>
+        <form
+          className="register-form"
+          onSubmit={handleSubmit}
+          aria-describedby="error"
+        >
+          {error && (
+            <div id="error" className="error-message" role="alert">
+              {error}
+            </div>
+          )}
+          <div className="form-field">
+            <input
+              id="name-input"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="name-input">Full name</label>
           </div>
-        )}
-        <label>
-          Full name
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength={8}
-          />
-        </label>
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            value={confirm}
-            onChange={(e) => setConfirm(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating..." : "Create account"}
-        </button>
-      </form>
-    </main>
+          <div className="form-field">
+            <input
+              id="email-input"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="email-input">Email</label>
+          </div>
+          <div className="form-field">
+            <input
+              id="password-input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength={8}
+              placeholder=" "
+            />
+            <label htmlFor="password-input">Password</label>
+          </div>
+          <div className="form-field">
+            <input
+              id="confirm-input"
+              type="password"
+              value={confirm}
+              onChange={(e) => setConfirm(e.target.value)}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="confirm-input">Confirm Password</label>
+          </div>
+          <button type="submit" className="form-button" disabled={loading}>
+            {loading ? "Creating..." : "Create account"}
+          </button>
+        </form>
+        <div style={{ marginTop: "1rem", textAlign: "center" }}>
+          <p>
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              style={{
+                color: "#CF3F28",
+                textDecoration: "none",
+                fontWeight: "bold",
+              }}
+            >
+              Log in
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 

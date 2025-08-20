@@ -1,0 +1,124 @@
+.register-page-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.register-image-section {
+  width: 40%;
+  background: url("../../assets/login.jpg") no-repeat center center/cover;
+}
+
+.register-form-section {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.logo {
+  margin-bottom: 1rem;
+}
+
+.welcome-text {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--dark-color);
+}
+
+.welcome-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-text p {
+  font-size: 1rem;
+  color: var(--text-color);
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.register-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-field {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 0.75rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-field:focus-within {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.form-field input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--dark-color);
+  padding: 0.5rem 0;
+  outline: none;
+  line-height: 1.5;
+}
+
+.form-field label {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  color: #9ca3af;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  background-color: #ffffff;
+}
+
+.form-field input:not(:placeholder-shown) + label,
+.form-field input:focus + label {
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0 0.25rem;
+  color: var(--primary-color);
+}
+
+.error-message {
+  color: var(--secondary-color);
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-button {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  font-family: bebas neue;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease;
+}
+
+.form-button:hover {
+  background-color: var(--dark-color);
+}
+
+.form-button:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}

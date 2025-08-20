@@ -1,15 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CardBox.css";
 import earthAfrica from "../assets/earth-africa.svg";
 import globalCuisine from "../assets/Global-cuisine.jpg";
 import stopwatch from "../assets/stopwatch.svg";
+import { useAuth } from "../context/AuthContext";
 
-function CardBox() {
+function CardBox({ category }) {
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const [highScore, setHighScore] = useState(0);
+
+  useEffect(() => {
+    const fetchHighScore = async () => {
+      if (user) {
+        const userId = user.id;
+        try {
+          const response = await fetch(
+            `/api/rank/${userId}/${encodeURIComponent(category)}`
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          setHighScore(data.score); // Assuming the API returns an object with a 'score' property
+        } catch (error) {
+          console.error("Error fetching high score:", error);
+          setHighScore("N/A"); // Display N/A or a default value on error
+        }
+      }
+    };
+
+    fetchHighScore();
+  }, [user, category]);
 
   const handleStartQuiz = () => {
-    navigate("/quiz");
+    navigate(`/quiz/${encodeURIComponent(category)}`);
   };
 
   return (
@@ -20,13 +46,13 @@ function CardBox() {
             <img src={earthAfrica} alt="Global Cuisine Icon"></img>
           </div>
           <div className="card-title-text">
-            <div className="card-title">Global Cuisine</div>
+            <div className="card-title">{category}</div>
             <div className="card-title-description">Difficulty level: Easy</div>
           </div>
         </div>
         <div className="card-header-score">
           <div className="card-header-score-text">HighScore</div>
-          <div className="card-header-score-value">192</div>
+          <div className="card-header-score-value">{highScore}</div>
         </div>
       </div>
       <img
@@ -53,8 +79,6 @@ function CardBox() {
           <div className="card-rules-text">
             <p>
               You have <b>60 seconds</b> to answer as many questions as you can.
-              Speed is key, but be careful —{" "}
-              <i>every incorrect answer will cost you points!</i>
             </p>
           </div>
         </div>

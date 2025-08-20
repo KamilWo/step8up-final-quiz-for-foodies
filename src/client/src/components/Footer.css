@@ -5,7 +5,7 @@ footer {
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  border-top: 3px solid #fb6900;
+  border-top: 1px solid #c9c9c9;
 }
 
 footer div {
@@ -34,4 +34,12 @@ footer a:hover {
   footer div {
     margin: 5px 0;
   }
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--dark-color);
 }
