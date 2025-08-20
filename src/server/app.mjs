@@ -18,11 +18,12 @@ const __dirname = path.dirname(__filename);
 // Create Express app
 const app = express();
 
+const allowedOrigins = ["http://localhost:5173", "http://localhost:3000", "http://localhost:10000", "https://step8up-final-quiz-for-foodies.onrender.com"];
 // Middleware to handle CORS (Cross-Origin Resource Sharing)
 // Configure CORS to allow credentials from the client origin
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: allowedOrigins,
     credentials: true,
   })
 );

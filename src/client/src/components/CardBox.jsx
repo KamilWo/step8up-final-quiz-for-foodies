@@ -1,16 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./CardBox.css";
+import earthAfrica from "../assets/earth-africa.svg";
+import globalCuisine from "../assets/Global-cuisine.jpg";
+import stopwatch from "../assets/stopwatch.svg";
 
 function CardBox() {
+  const navigate = useNavigate();
+
+  const handleStartQuiz = () => {
+    navigate("/quiz");
+  };
+
   return (
     <div className="card-box">
       <div className="card-header">
         <div className="card-title-box">
           <div className="card-title-icon">
-            <img
-              src="src/assets/earth-africa.svg"
-              alt="Global Cuisine Icon"
-            ></img>
+            <img src={earthAfrica} alt="Global Cuisine Icon"></img>
           </div>
           <div className="card-title-text">
             <div className="card-title">Global Cuisine</div>
@@ -23,7 +30,7 @@ function CardBox() {
         </div>
       </div>
       <img
-        src="src\assets\Global-cuisine.jpg"
+        src={globalCuisine}
         alt="Global Cuisine Banner"
         className="card-banner-img"
       />
@@ -41,7 +48,7 @@ function CardBox() {
         </div>
         <div className="card-rules">
           <div className="card-rules-icon">
-            <img src="src/assets/stopwatch.svg" alt="stopwatch"></img>
+            <img src={stopwatch} alt="stopwatch"></img>
           </div>
           <div className="card-rules-text">
             <p>
@@ -51,7 +58,9 @@ function CardBox() {
             </p>
           </div>
         </div>
-        <button className="card-button">Start Quiz</button>
+        <button onClick={handleStartQuiz} className="card-button">
+          Start Quiz
+        </button>
       </div>
     </div>
   );
