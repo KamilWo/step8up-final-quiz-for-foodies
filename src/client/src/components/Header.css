@@ -31,6 +31,38 @@
 .icon-link:hover {
   color: var(--dark-color);
 }
+
 .header-icon {
   font-size: 24px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--tertiary-color);
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin-top: -3px;
+  min-width: 160px;
+}
+
+.account-section:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: var(--dark-color);
+}
+
+.dropdown-menu li:hover {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  font-weight: bold;
 }

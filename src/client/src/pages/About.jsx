@@ -1,32 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import kamil from "../assets/Team/Kamil.jpeg";
+import emily from "../assets/Team/Emily.png";
+import charlie from "../assets/Team/Charlie.jpg";
+import wani from "../assets/Team/Wani.jpg";
+import isaac from "../assets/Team/Isaac.jpeg";
 
 const About = () => {
   const teamMembers = [
     {
       name: "Kamil Wozniak",
       bio: "Kamil is a passionate foodie and the visionary behind Taste Trivia. With a background in culinary arts and a love for technology, he combined his two passions to create a platform that entertains and educates.",
-      imageUrl: "https://source.unsplash.com/400x400/?person",
+      imageUrl: kamil,
     },
     {
       name: "Emily-Mae Kona",
       bio: "Emily-Mae is a software engineer with a knack for creating beautiful and intuitive user interfaces. She believes that a great user experience is as important as the content itself.",
-      imageUrl: "https://source.unsplash.com/400x400/?woman",
+      imageUrl: emily,
     },
     {
       name: "Charlie Cooke",
       bio: "Charlie is our quiz master, responsible for crafting the challenging and engaging questions that you love. His extensive knowledge of food history and culture makes every quiz a new adventure.",
-      imageUrl: "https://source.unsplash.com/400x400/?man",
+      imageUrl: charlie,
     },
     {
       name: "Wani Aris",
       bio: "Wani is a marketing specialist who helps spread the word about Taste Trivia. She's passionate about building a community of food lovers and connecting with our users.",
-      imageUrl: "https://source.unsplash.com/400x400/?girl",
+      imageUrl: wani,
     },
     {
       name: "Isaac Henry Kusi",
       bio: "Isaac is a backend developer who ensures that Taste Trivia runs smoothly. He's the reason you can enjoy our quizzes without a hitch.",
-      imageUrl: "https://source.unsplash.com/400x400/?guy",
+      imageUrl: isaac,
     },
   ];
 
@@ -63,7 +68,7 @@ const About = () => {
               <img
                 src={member.imageUrl}
                 alt={member.name}
-                className="w-32 h-32 rounded-full mx-auto mb-4"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-gray-200"
               />
               <h3 className="text-xl font-bold mb-2">{member.name}</h3>
               <p className="text-gray-700">{member.bio}</p>
