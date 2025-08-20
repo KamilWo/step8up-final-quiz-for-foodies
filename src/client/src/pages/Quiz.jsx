@@ -9,6 +9,7 @@ export default function Quiz() {
   const [highscore, setHighscore] = useState(300);
   const [score, setScore] = useState(0);
   const [showQuizEnd, setShowQuizEnd] = useState(false);
+  const [feedback, setFeedback] = useState(null);
 
   const random_question = () => {
     // Data not empty
@@ -32,12 +33,16 @@ export default function Quiz() {
   const handleAnswer = (selectedOption) => {
     if (selectedOption === question.answer) {
       setScore((prev) => prev + 1);
-      //   alert("Correct!");
-      // } else {
-      //   alert("Not quite!");
-      // }
+      setFeedback("correct");
+    } else {
+      setFeedback("wrong");
     }
+
     random_question();
+    // Wait, then move to next question and clear feedback
+    setTimeout(() => {
+      setFeedback(null);
+    }, 200);
   };
 
   return (
@@ -55,6 +60,7 @@ export default function Quiz() {
           duration={60}
           onTimeUp={handleTimeUp}
           onAnswer={handleAnswer}
+          feedback={feedback}
         />
       ) : (
         <QuizEnd

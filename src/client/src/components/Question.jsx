@@ -16,6 +16,7 @@ function Question({
   onTimeUp,
   onAnswer,
   answer,
+  feedback,
 }) {
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -29,8 +30,13 @@ function Question({
     onAnswer(option);
   };
 
+  // Determine feedback class
+  let feedbackClass = "";
+  if (feedback === "correct") feedbackClass = "glow-correct";
+  if (feedback === "wrong") feedbackClass = "glow-wrong";
+
   return (
-    <div className="card-box">
+    <div className={`card-box ${feedbackClass}`}>
       <div className="question-header">
         <div className="question-title-box">
           <div className="question-title-icon">
@@ -43,7 +49,7 @@ function Question({
           <div className="card-header-score-value">{score}</div>
         </div>
         <div className="question-header-score">
-          <div className="card-header-score-text">HighScore</div>
+          <div className="card-header-score-text">&nbsp;HighScore</div>
           <div className="card-header-score-value">{highscore}</div>
         </div>
       </div>
