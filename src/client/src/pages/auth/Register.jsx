@@ -40,7 +40,7 @@ export default function Register() {
       </div>
       <div className="register-form-section">
         <div className="logo">
-          <img src={logo} alt="Your Website Logo" className="logo-image" />
+          <img src={logo} alt="Taste Trivia Logo" className="logo-image" />
         </div>
         <div className="welcome-text">
           <h1>Create your account</h1>
