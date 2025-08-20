@@ -39,10 +39,11 @@ const addOrUpdateRank = async (req, res) => {
 // Get a user's rank for a specific category
 const getRank = async (req, res) => {
   try {
-    const { userId, category } = req.params;
+    const { userId } = req.params;
+    const category = decodeURIComponent(req.params.category);
 
     const rank = await Rank.findOne({
-      where: { userId: userId, category },
+      where: { userId, category },
     });
 
     if (!rank) {

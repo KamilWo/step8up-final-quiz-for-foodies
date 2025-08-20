@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Question from "../components/Question";
 import QuizEnd from "../components/QuizEnd";
 import data from "../../../server/seeds/quizzes_with_options.json";
@@ -10,6 +11,7 @@ export default function Quiz() {
   const [score, setScore] = useState(0);
   const [showQuizEnd, setShowQuizEnd] = useState(false);
   const [feedback, setFeedback] = useState(null);
+  const { category } = useParams();
 
   // Whole quiz timer state
   const totalQuizDuration = 60; // seconds
@@ -27,20 +29,22 @@ export default function Quiz() {
     return () => clearInterval(timerId);
   }, [timeLeft]);
 
-  // Pick a random question from data
+  // Pick a random question from data based on category
   const random_question = () => {
-    if (data.length === 0) {
-      console.warn("No quiz data available.");
+    const filteredData = data.filter((q) => q.category === category);
+    if (filteredData.length === 0) {
+      console.warn(`No quiz data available for category: ${category}`);
+      setQuestion(null); // Or handle this case as needed, e.g., show a message
       return;
     }
-    const randomIndex = Math.floor(Math.random() * data.length);
-    setQuestion(data[randomIndex]);
+    const randomIndex = Math.floor(Math.random() * filteredData.length);
+    setQuestion(filteredData[randomIndex]);
   };
 
   // On mount → select first question
   useEffect(() => {
     random_question();
-  }, []);
+  }, [category]); // Re-run when category changes
 
   const handleAnswer = (selectedOption) => {
     if (!question) return;
@@ -79,7 +83,7 @@ export default function Quiz() {
         />
       ) : (
         <QuizEnd
-          category={question?.category || "Quiz"}
+          category={category || "Quiz"}
           highscore={highscore}
           score={score}
         />

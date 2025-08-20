@@ -30,32 +30,39 @@ const seedUsers = [
   },
 ];
 
+const categories = [
+  "Global Cuisine",
+  "Ingredients & Flavour",
+  "Cooking Techniques",
+  "Baking & Desserts"
+];
+
 const seedRanks = [
   // User 1
-  { user_id: 1, category: "Global Cuisine", score: 85 },
-  { user_id: 1, category: "Ingredients & Flavour", score: 92 },
-  { user_id: 1, category: "Cooking Techniques", score: 78 },
-  { user_id: 1, category: "Baking & Desserts", score: 88 },
+  { user_id: 1, category: categories[0], score: 85 },
+  { user_id: 1, category: categories[1], score: 92 },
+  { user_id: 1, category: categories[2], score: 78 },
+  { user_id: 1, category: categories[3], score: 88 },
   // User 2
-  { user_id: 2, category: "Global Cuisine", score: 72 },
-  { user_id: 2, category: "Ingredients & Flavour", score: 81 },
-  { user_id: 2, category: "Cooking Techniques", score: 65 },
-  { user_id: 2, category: "Baking & Desserts", score: 79 },
+  { user_id: 2, category: categories[0], score: 72 },
+  { user_id: 2, category: categories[1], score: 81 },
+  { user_id: 2, category: categories[2], score: 65 },
+  { user_id: 2, category: categories[3], score: 79 },
   // User 3
-  { user_id: 3, category: "Global Cuisine", score: 80 },
-  { user_id: 3, category: "Ingredients & Flavour", score: 85 },
-  { user_id: 3, category: "Cooking Techniques", score: 75 },
-  { user_id: 3, category: "Baking & Desserts", score: 82 },
+  { user_id: 3, category: categories[0], score: 80 },
+  { user_id: 3, category: categories[1], score: 85 },
+  { user_id: 3, category: categories[2], score: 75 },
+  { user_id: 3, category: categories[3], score: 82 },
   // User 4
-  { user_id: 4, category: "Global Cuisine", score: 90 },
-  { user_id: 4, category: "Ingredients & Flavour", score: 88 },
-  { user_id: 4, category: "Cooking Techniques", score: 82 },
-  { user_id: 4, category: "Baking & Desserts", score: 95 },
+  { user_id: 4, category: categories[0], score: 90 },
+  { user_id: 4, category: categories[1], score: 88 },
+  { user_id: 4, category: categories[2], score: 82 },
+  { user_id: 4, category: categories[3], score: 95 },
   // User 5
-  { user_id: 5, category: "Global Cuisine", score: 95 },
-  { user_id: 5, category: "Ingredients & Flavour", score: 90 },
-  { user_id: 5, category: "Cooking Techniques", score: 88 },
-  { user_id: 5, category: "Baking & Desserts", score: 93 },
+  { user_id: 5, category: categories[0], score: 95 },
+  { user_id: 5, category: categories[1], score: 90 },
+  { user_id: 5, category: categories[2], score: 88 },
+  { user_id: 5, category: categories[3], score: 93 },
 ];
 
 const seedDatabase = async () => {
