@@ -9,6 +9,7 @@ import { useAuth } from "../context/AuthContext";
 
 const AccountSection = ({ userName }) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const { logout } = useAuth();
 
   return (
     <div
@@ -31,7 +32,7 @@ const AccountSection = ({ userName }) => {
           <Link to="/settings">
             <li>Account Settings</li>
           </Link>
-          <Link to="/logout">
+          <Link onClick={logout}>
             <li>Log Out</li>
           </Link>
         </ul>
@@ -47,24 +48,24 @@ function Sidebar() {
     <nav className="sidebar">
       <div className="main-links-container">
         <ul>
-          <li>
+          {/* <li>
             <a href="/" className="menu-item">
               <InfoOutlinedIcon className="menu-icon" />
               <span>Home</span>
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="/dashboard" className="menu-item">
               <InfoOutlinedIcon className="menu-icon" />
               <span>Dashboard</span>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="/quiz" className="menu-item">
               <QuizOutlinedIcon className="menu-icon" />
               <span>Quizzes</span>
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="/leaderboard" className="menu-item">
               <LeaderboardOutlinedIcon className="menu-icon" />

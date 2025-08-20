@@ -172,3 +172,19 @@
   letter-spacing: 0px;
   text-transform: uppercase;
 }
+
+.glow-correct {
+  box-shadow: 0 0 16px 4px #4ade80 !important;
+  border: 2px solid #4ade80 !important;
+  transition:
+    box-shadow 0.2s,
+    border 0.2s;
+}
+
+.glow-wrong {
+  box-shadow: 0 0 16px 4px #f87171 !important;
+  border: 2px solid #f87171 !important;
+  transition:
+    box-shadow 0.2s,
+    border 0.2s;
+}

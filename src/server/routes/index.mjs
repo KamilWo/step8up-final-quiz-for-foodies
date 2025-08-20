@@ -7,6 +7,7 @@ import {fileURLToPath} from 'url' // To resolve __dirname in ES Modules
 import sequelize from "../config/sequelize.mjs"; // Connect to the database for health check
 // Import API routes
 import authApiRoutes from "./api/auth.mjs";
+import rankRoutes from "./api/rank.mjs";
 import quizzesApiRoutes from "./api/quizzes.mjs";
 
 // Replicate __dirname functionality in ES Modules for path resolution
@@ -14,6 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const router = express.Router();
+
 // --- Health Check Route ---
 router.get("/healthz", async (req, res) => {
   try {
@@ -30,6 +32,7 @@ router.get("/healthz", async (req, res) => {
 
 // Mount API routes under a specific prefixes
 router.use("/api/auth", authApiRoutes);
+router.use("/api/rank", rankRoutes);
 
 // A simple welcome route for the root API path
 router.get("/api", (req, res) => {
