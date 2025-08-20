@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main style={{ padding: "2rem" }}>
       <div className="logo">
-        <img src={logo} alt="Your Website Logo" className="logo-image" />
+        <img src={logo} alt="Taste Trivia Logo" className="logo-image" />
       </div>
       {user ? (
         <>
