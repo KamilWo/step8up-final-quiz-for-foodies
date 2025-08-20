@@ -32,7 +32,7 @@ function Question({ category, score, highscore }) {
         </div>
         <div className="question-button-box">
           <button onClick={handleDashboard} className="card-button">
-            Return to dashbaoard
+            Return to dashboard
           </button>
           <button onClick={handleLeaderboard} className="card-button">
             View the leaderboard

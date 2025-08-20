@@ -53,8 +53,8 @@ function CardBox() {
           <div className="card-rules-text">
             <p>
               You have <b>60 seconds</b> to answer as many questions as you can.
-              Speed is key, but be careful —{" "}
-              <i>every incorrect answer will cost you points!</i>
+              {/* Speed is key, but be careful —{" "}
+              <i>every incorrect answer will cost you points!</i> */}
             </p>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Question.css";
 import earthAfricaOrange from "../assets/earth-africa-orange.svg";
-import QuizTimer from "../components/QuizTimer";
+// import QuizTimer from "../components/QuizTimer";
 
 function Question({
   category,
@@ -48,9 +48,9 @@ function Question({
         </div>
       </div>
       <div className="card-content">
-        <div className="question-timer">
+        {/* <div className="question-timer">
           <QuizTimer duration={duration} onTimeUp={onTimeUp} />
-        </div>
+        </div> */}
         <div className="question-content-text">
           <p>{question}</p>
         </div>
@@ -69,20 +69,24 @@ function Question({
           >
             {option2}
           </button>
-          <button
-            className="question-button"
-            onClick={() => handleClick(option3)}
-            disabled={!!selectedOption}
-          >
-            {option3}
-          </button>
-          <button
-            className="question-button"
-            onClick={() => handleClick(option4)}
-            disabled={!!selectedOption}
-          >
-            {option4}
-          </button>
+          {option3 && option3.trim() !== "" && (
+            <button
+              className="question-button"
+              onClick={() => handleClick(option3)}
+              disabled={!!selectedOption}
+            >
+              {option3}
+            </button>
+          )}
+          {option4 && option4.trim() !== "" && (
+            <button
+              className="question-button"
+              onClick={() => handleClick(option4)}
+              disabled={!!selectedOption}
+            >
+              {option4}
+            </button>
+          )}
         </div>
       </div>
     </div>
