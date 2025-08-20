@@ -48,12 +48,16 @@ export default function Quiz() {
   const handleAnswer = (selectedOption) => {
     if (selectedOption === question.answer) {
       setScore((prev) => prev + 1);
-      //   alert("Correct!");
-      // } else {
-      //   alert("Not quite!");
-      // }
+      setFeedback("correct");
+    } else {
+      setFeedback("wrong");
     }
+
     random_question();
+    // Wait, then move to next question and clear feedback
+    setTimeout(() => {
+      setFeedback(null);
+    }, 200);
   };
 
   return (
@@ -77,6 +81,7 @@ export default function Quiz() {
           // duration={60}
           // onTimeUp={handleTimeUp}
           onAnswer={handleAnswer}
+          feedback={feedback}
         />
       ) : (
         <QuizEnd
