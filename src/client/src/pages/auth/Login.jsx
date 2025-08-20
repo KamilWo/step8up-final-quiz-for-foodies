@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import "./Login.css";
+import logo from "../../assets/logo.png";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -16,7 +18,7 @@ export default function Login() {
     setLoading(true);
     try {
       await auth.login({ email, password });
-      navigate("/dashboard"); // or wherever
+      navigate("/dashboard");
     } catch (err) {
       setError(err.message || "Login failed");
     } finally {
@@ -25,37 +27,73 @@ export default function Login() {
   }
 
   return (
-    <main>
-      <h1>Sign in</h1>
-      <form onSubmit={handleSubmit} aria-describedby="error">
-        {error && (
-          <div id="error" role="alert">
-            {error}
+    <div className="register-page-container">
+      <div className="register-image-section">{}</div>
+      <div className="register-form-section">
+        <div className="logo">
+          <img src={logo} alt="Your Website Logo" className="logo-image" />
+        </div>
+        <div className="welcome-text">
+          <h1>Sign in</h1>
+          <p>
+            Login to your account to track your progress, climb the global
+            leaderboards, and unlock exclusive quiz badges. Your journey to
+            trivia stardom starts here!
+          </p>
+        </div>
+        <form
+          className="register-form"
+          onSubmit={handleSubmit}
+          aria-describedby="error"
+        >
+          {error && (
+            <div id="error" className="error-message" role="alert">
+              {error}
+            </div>
+          )}
+          <div className="form-field">
+            <input
+              id="email-input"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="email-input">Email</label>
           </div>
-        )}
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit" disabled={loading}>
-          {loading ? "Signing in..." : "Sign in"}
-        </button>
-      </form>
-    </main>
+          <div className="form-field">
+            <input
+              id="password-input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder=" "
+            />
+            <label htmlFor="password-input">Password</label>
+          </div>
+          <button type="submit" className="form-button" disabled={loading}>
+            {loading ? "Signing in..." : "Sign in"}
+          </button>
+        </form>
+        <div style={{ marginTop: "1rem", textAlign: "center" }}>
+          <p>
+            Don't have an account?{" "}
+            <Link
+              to="/register"
+              style={{
+                color: "#CF3F28",
+                textDecoration: "none",
+                fontWeight: "bold",
+              }}
+            >
+              Register
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
