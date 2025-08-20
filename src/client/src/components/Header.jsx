@@ -7,37 +7,6 @@ import logo from "../assets/logo.png";
 import { useAuth } from "../context/AuthContext.jsx";
 import Avatar from "boring-avatars";
 
-const Header = () => {
-  // Use the useAuth hook to get the logged-in user's data
-  const { user } = useAuth();
-
-  return (
-    <>
-      <header className="header-container">
-        {/* Logo Section */}
-        <div className="logo-container">
-          <img src={logo} alt="Taste Trivia Logo" className="logo-image" />
-        </div>
-
-        {/* Action Icons Section */}
-        <div className="action-icons">
-          {/* Notification Bell Icon */}
-          <a href="#" className="icon-link">
-            <NotificationsNoneIcon className="header-icon" />
-          </a>
-
-          {/* Help Icon */}
-          <a href="#" className="icon-link">
-            <HelpOutlineIcon className="header-icon" />
-          </a>
-        </div>
-
-        {user && <AccountSection userName={user.name} />}
-      </header>
-    </>
-  );
-};
-
 const AccountSection = ({ userName }) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const { logout } = useAuth();
@@ -69,6 +38,37 @@ const AccountSection = ({ userName }) => {
         </ul>
       )}
     </div>
+  );
+};
+
+const Header = () => {
+  // Use the useAuth hook to get the logged-in user's data
+  const { user } = useAuth();
+
+  return (
+    <>
+      <header className="header-container">
+        {/* Logo Section */}
+        <div className="logo-container">
+          <img src={logo} alt="Taste Trivia Logo" className="logo-image" />
+        </div>
+
+        {/* Action Icons Section */}
+        <div className="action-icons">
+          {/* Notification Bell Icon */}
+          <a href="#" className="icon-link">
+            <NotificationsNoneIcon className="header-icon" />
+          </a>
+
+          {/* Help Icon */}
+          <a href="#" className="icon-link">
+            <HelpOutlineIcon className="header-icon" />
+          </a>
+        </div>
+
+        {user && <AccountSection userName={user.name} />}
+      </header>
+    </>
   );
 };
 
