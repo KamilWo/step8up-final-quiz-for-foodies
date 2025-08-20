@@ -10,15 +10,16 @@ export default function Dashboard() {
 
   return (
     <main style={{ padding: "2rem" }}>
-      <CardBox />
-      {/*       <h1>Dashboard</h1>
-      <p>
-        Logged in as <strong>{user?.name || user?.email}</strong>
-      </p>
-      <nav>
-        <Link to="/">Back to Home</Link> |{" "}
-        <button onClick={logout}>Logout</button>
-      </nav> */}
+      <CardBox
+        icon={"earthAfrica"}
+        title={"Global Cuisine"}
+        difficulty={"Difficulty level: Easy"}
+        highscore={0}
+        banner={"globalCuisine"}
+        content={
+          "<p>Ready for a trip around the world? ✈️🌍 No passport required! From the sizzling street food of Mexico to the savory curries of India, we're taking your taste buds on a global tour.</p><p>Think you can tell your goulash from your gumbo? Put your foodie knowledge to the test!</p>"
+        }
+      />
     </main>
   );
 }

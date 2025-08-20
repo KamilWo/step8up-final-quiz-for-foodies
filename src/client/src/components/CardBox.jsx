@@ -5,7 +5,7 @@ import earthAfrica from "../assets/earth-africa.svg";
 import globalCuisine from "../assets/Global-cuisine.jpg";
 import stopwatch from "../assets/stopwatch.svg";
 
-function CardBox() {
+function CardBox({ icon, title, difficulty, highscore, banner, content }) {
   const navigate = useNavigate();
 
   const handleStartQuiz = () => {
@@ -17,35 +17,25 @@ function CardBox() {
       <div className="card-header">
         <div className="card-title-box">
           <div className="card-title-icon">
-            <img src={earthAfrica} alt="Global Cuisine Icon"></img>
+            <img src={icon} alt="Global Cuisine Icon"></img>
           </div>
           <div className="card-title-text">
-            <div className="card-title">Global Cuisine</div>
-            <div className="card-title-description">Difficulty level: Easy</div>
+            <div className="card-title">{title}</div>
+            <div className="card-title-description">{difficulty}</div>
           </div>
         </div>
         <div className="card-header-score">
-          <div className="card-header-score-text">HighScore</div>
-          <div className="card-header-score-value">192</div>
+          <div className="card-header-score-text">Your Highscore</div>
+          <div className="card-header-score-value">{highscore}</div>
         </div>
       </div>
       <img
-        src={globalCuisine}
+        src={banner}
         alt="Global Cuisine Banner"
         className="card-banner-img"
       />
       <div className="card-content">
-        <div className="card-content-text">
-          <p>
-            Ready for a trip around the world? ✈️🌍 No passport required! From
-            the sizzling street food of Mexico to the savory curries of India,
-            we're taking your taste buds on a global tour.
-          </p>
-          <p>
-            Think you can tell your goulash from your gumbo? Put your foodie
-            knowledge to the test!
-          </p>
-        </div>
+        <div className="card-content-text">{content}</div>
         <div className="card-rules">
           <div className="card-rules-icon">
             <img src={stopwatch} alt="stopwatch"></img>
