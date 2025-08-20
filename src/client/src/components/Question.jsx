@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Question.css";
 import earthAfricaOrange from "../assets/earth-africa-orange.svg";
-import QuizTimer from "../components/QuizTimer";
+// import QuizTimer from "../components/QuizTimer";
 
 function Question({
   category,
@@ -48,9 +48,9 @@ function Question({
         </div>
       </div>
       <div className="card-content">
-        <div className="question-timer">
+        {/* <div className="question-timer">
           <QuizTimer duration={duration} onTimeUp={onTimeUp} />
-        </div>
+        </div> */}
         <div className="question-content-text">
           <p>{question}</p>
         </div>

@@ -9,6 +9,22 @@ export default function Quiz() {
   const [highscore, setHighscore] = useState(300);
   const [score, setScore] = useState(0);
   const [showQuizEnd, setShowQuizEnd] = useState(false);
+  const [feedback, setFeedback] = useState(null);
+
+  // Whole quiz timer state
+  const totalQuizDuration = 60;
+  const [timeLeft, setTimeLeft] = useState(totalQuizDuration);
+
+  useEffect(() => {
+    if (timeLeft <= 0) {
+      setShowQuizEnd(true);
+      return;
+    }
+    const timerId = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+    return () => clearInterval(timerId);
+  }, [timeLeft]);
 
   const random_question = () => {
     // Data not empty
@@ -42,6 +58,12 @@ export default function Quiz() {
 
   return (
     <>
+      {/* Render the timer at the top */}
+      <QuizTimer
+        duration={totalQuizDuration}
+        onTimeUp={handleTimeUp}
+        timeLeft={timeLeft}
+      />
       {!showQuizEnd ? (
         <Question
           question={question.question}
@@ -52,8 +74,8 @@ export default function Quiz() {
           option2={question.option_02}
           option3={question.option_03}
           option4={question.option_04}
-          duration={60}
-          onTimeUp={handleTimeUp}
+          // duration={60}
+          // onTimeUp={handleTimeUp}
           onAnswer={handleAnswer}
         />
       ) : (
