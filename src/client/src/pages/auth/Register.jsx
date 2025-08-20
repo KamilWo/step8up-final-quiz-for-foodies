@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-// import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import "./Register.css";
 import logo from "../../assets/logo.png";
 
@@ -11,7 +11,7 @@ export default function Register() {
   const [confirm, setConfirm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  // const auth = useAuth();
+  const auth = useAuth();
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -23,8 +23,7 @@ export default function Register() {
     }
     setLoading(true);
     try {
-      // The auth.register function is commented out for this example.
-      // await auth.register({ name, email, password });
+      await auth.register({ name, email, password });
       console.log("Registration submitted:", { name, email, password });
       navigate("/dashboard"); // or /login depending on your flow
     } catch (err) {
