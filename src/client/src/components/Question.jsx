@@ -69,20 +69,24 @@ function Question({
           >
             {option2}
           </button>
-          <button
-            className="question-button"
-            onClick={() => handleClick(option3)}
-            disabled={!!selectedOption}
-          >
-            {option3}
-          </button>
-          <button
-            className="question-button"
-            onClick={() => handleClick(option4)}
-            disabled={!!selectedOption}
-          >
-            {option4}
-          </button>
+          {option3 && option3.trim() !== "" && (
+            <button
+              className="question-button"
+              onClick={() => handleClick(option3)}
+              disabled={!!selectedOption}
+            >
+              {option3}
+            </button>
+          )}
+          {option4 && option4.trim() !== "" && (
+            <button
+              className="question-button"
+              onClick={() => handleClick(option4)}
+              disabled={!!selectedOption}
+            >
+              {option4}
+            </button>
+          )}
         </div>
       </div>
     </div>
