@@ -1,6 +1,6 @@
 import sequelize from "../config/sequelize.mjs";
 import { User, Quiz, Rank } from "../models/index.mjs";
-import seedQuizzes from "./quizzes_with_options.json" with { type: "json" };
+import seedQuizzes from "./quizzes_with_random_options.json" with { type: "json" };
 
 const seedUsers = [
   {
