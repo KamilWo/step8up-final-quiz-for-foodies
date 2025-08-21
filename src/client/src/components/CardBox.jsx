@@ -26,7 +26,7 @@ function CardBox({ category }) {
           setHighScore(data.score); // Assuming the API returns an object with a 'score' property
         } catch (error) {
           console.error("Error fetching high score:", error);
-          setHighScore("N/A"); // Display N/A or a default value on error
+          setHighScore(0); // Set to 0 in case of error
         }
       }
     };
@@ -35,7 +35,7 @@ function CardBox({ category }) {
   }, [user, category]);
 
   const handleStartQuiz = () => {
-    navigate(`/quiz/${encodeURIComponent(category)}`);
+    navigate(`/quiz/${encodeURIComponent(category)}/${highScore}`);
   };
 
   return (

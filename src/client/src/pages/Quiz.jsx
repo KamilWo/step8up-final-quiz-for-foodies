@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import Question from "../components/Question";
 import QuizEnd from "../components/QuizEnd";
 import data from "../../../server/seeds/quizzes_with_options.json";
 import QuizTimer from "../components/QuizTimer";
+import { useAuth } from "../context/AuthContext";
 
 export default function Quiz() {
   const [question, setQuestion] = useState(null);
-  const [highscore, setHighscore] = useState(300);
   const [score, setScore] = useState(0);
   const [showQuizEnd, setShowQuizEnd] = useState(false);
   const [feedback, setFeedback] = useState(null);
-  const { category } = useParams();
+  const { category, highscore } = useParams();
+  const { user } = useAuth();
+  const location = useLocation();
 
   // Whole quiz timer state
   const totalQuizDuration = 60; // seconds
@@ -28,6 +30,25 @@ export default function Quiz() {
     }, 1000);
     return () => clearInterval(timerId);
   }, [timeLeft]);
+
+  useEffect(() => {
+    if (showQuizEnd && user && score > highscore) {
+      const saveScore = async () => {
+        try {
+          await fetch("/api/rank", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ userId: user.id, category, score }),
+          });
+        } catch (error) {
+          console.error("Failed to save score", error);
+        }
+      };
+      saveScore();
+    }
+  }, [showQuizEnd, user, score, category, highscore]);
 
   // Pick a random question from data based on category
   const random_question = () => {

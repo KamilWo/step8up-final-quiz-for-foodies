@@ -35,7 +35,7 @@ function App() {
           >
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/quiz/:category" element={<Quiz />} />
+            <Route path="/quiz/:category/:highscore" element={<Quiz />} />
             <Route path="/about" element={<About />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/change-password" element={<ChangePassword />} />
