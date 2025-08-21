@@ -5,27 +5,27 @@ import seedQuizzes from "./quizzes_with_options.json" with { type: "json" };
 const seedUsers = [
   {
     name: "Emily-Mae Kona",
-    email: "test1@test.com",
+    email: "emily@test.com",
     password: "password123",
   },
   {
     name: "Charlie Cooke",
-    email: "test2@test.com",
+    email: "charlie@test.com",
     password: "password123",
   },
   {
     name: "Isaac Henry Kusi",
-    email: "test3@test.com",
+    email: "isaac@test.com",
     password: "password123",
   },
   {
     name: "Wani Aris",
-    email: "test4@test.com",
+    email: "wani@test.com",
     password: "password123",
   },
   {
     name: "Kamil Wozniak",
-    email: "test5@test.com",
+    email: "kamil@test.com",
     password: "password123",
   },
 ];
@@ -39,30 +39,30 @@ const categories = [
 
 const seedRanks = [
   // User 1
-  { user_id: 1, category: categories[0], score: 85 },
-  { user_id: 1, category: categories[1], score: 92 },
-  { user_id: 1, category: categories[2], score: 78 },
-  { user_id: 1, category: categories[3], score: 88 },
+  { user_id: 1, category: categories[0], score: 4 },
+  { user_id: 1, category: categories[1], score: 5 },
+  { user_id: 1, category: categories[2], score: 1 },
+  { user_id: 1, category: categories[3], score: 1 },
   // User 2
-  { user_id: 2, category: categories[0], score: 72 },
-  { user_id: 2, category: categories[1], score: 81 },
-  { user_id: 2, category: categories[2], score: 65 },
-  { user_id: 2, category: categories[3], score: 79 },
+  { user_id: 2, category: categories[0], score: 2 },
+  { user_id: 2, category: categories[1], score: 3 },
+  { user_id: 2, category: categories[2], score: 5 },
+  { user_id: 2, category: categories[3], score: 4 },
   // User 3
-  { user_id: 3, category: categories[0], score: 80 },
-  { user_id: 3, category: categories[1], score: 85 },
-  { user_id: 3, category: categories[2], score: 75 },
-  { user_id: 3, category: categories[3], score: 82 },
+  { user_id: 3, category: categories[0], score: 3 },
+  { user_id: 3, category: categories[1], score: 1 },
+  { user_id: 3, category: categories[2], score: 2 },
+  { user_id: 3, category: categories[3], score: 5 },
   // User 4
-  { user_id: 4, category: categories[0], score: 90 },
-  { user_id: 4, category: categories[1], score: 88 },
-  { user_id: 4, category: categories[2], score: 82 },
-  { user_id: 4, category: categories[3], score: 95 },
+  { user_id: 4, category: categories[0], score: 5 },
+  { user_id: 4, category: categories[1], score: 4 },
+  { user_id: 4, category: categories[2], score: 3 },
+  { user_id: 4, category: categories[3], score: 2 },
   // User 5
-  { user_id: 5, category: categories[0], score: 95 },
-  { user_id: 5, category: categories[1], score: 90 },
-  { user_id: 5, category: categories[2], score: 88 },
-  { user_id: 5, category: categories[3], score: 93 },
+  { user_id: 5, category: categories[0], score: 1 },
+  { user_id: 5, category: categories[1], score: 2 },
+  { user_id: 5, category: categories[2], score: 4 },
+  { user_id: 5, category: categories[3], score: 3 },
 ];
 
 const seedDatabase = async () => {
