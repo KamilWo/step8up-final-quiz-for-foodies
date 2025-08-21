@@ -19,11 +19,26 @@ function Question({
   feedback,
 }) {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [shuffledOptions, setShuffledOptions] = useState([]);
 
-  // Reset selectedOption when the question changes
+  // When a new question is passed, reset the selection
+  // and shuffle the new answer options.
   useEffect(() => {
     setSelectedOption(null);
-  }, [question]);
+
+    // Collect all valid options into an array
+    const options = [option1, option2, option3, option4].filter(
+      (opt) => opt && opt.trim() !== ""
+    );
+
+    // Shuffle the options array using the Fisher-Yates algorithm
+    // to ensure the order is random each time.
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+    }
+    setShuffledOptions(options);
+  }, [question, option1, option2, option3, option4]);
 
   const handleClick = (option) => {
     setSelectedOption(option);
@@ -54,45 +69,20 @@ function Question({
         </div>
       </div>
       <div className="card-content">
-        {/* <div className="question-timer">
-          <QuizTimer duration={duration} onTimeUp={onTimeUp} />
-        </div> */}
         <div className="question-content-text">
           <p>{question}</p>
         </div>
         <div className="question-button-box">
-          <button
-            className="question-button"
-            onClick={() => handleClick(option1)}
-            disabled={!!selectedOption}
-          >
-            {option1}
-          </button>
-          <button
-            className="question-button"
-            onClick={() => handleClick(option2)}
-            disabled={!!selectedOption}
-          >
-            {option2}
-          </button>
-          {option3 && option3.trim() !== "" && (
+          {shuffledOptions.map((option) => (
             <button
+              key={option}
               className="question-button"
-              onClick={() => handleClick(option3)}
+              onClick={() => handleClick(option)}
               disabled={!!selectedOption}
             >
-              {option3}
+              {option}
             </button>
-          )}
-          {option4 && option4.trim() !== "" && (
-            <button
-              className="question-button"
-              onClick={() => handleClick(option4)}
-              disabled={!!selectedOption}
-            >
-              {option4}
-            </button>
-          )}
+          ))}
         </div>
       </div>
     </div>
