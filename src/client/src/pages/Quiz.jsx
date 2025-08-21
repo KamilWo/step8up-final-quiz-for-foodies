@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import Question from "../components/Question";
 import QuizEnd from "../components/QuizEnd";
-import data from "../../../server/seeds/quizzes_with_options.json";
+import data from "../../../server/seeds/quizzes_with_random_options.json";
 import QuizTimer from "../components/QuizTimer";
 import { useAuth } from "../context/AuthContext";
 
