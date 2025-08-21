@@ -3,7 +3,7 @@
 
 import express from "express";
 import path from "path";
-import {fileURLToPath} from 'url' // To resolve __dirname in ES Modules
+import {fileURLToPath} from 'url'; // To resolve __dirname in ES Modules
 import sequelize from "../config/sequelize.mjs"; // Connect to the database for health check
 // Import API routes
 import authApiRoutes from "./api/auth.mjs";
@@ -33,6 +33,7 @@ router.get("/healthz", async (req, res) => {
 // Mount API routes under a specific prefixes
 router.use("/api/auth", authApiRoutes);
 router.use("/api/rank", rankRoutes);
+router.use("/api/quizzes", quizzesApiRoutes);
 
 // A simple welcome route for the root API path
 router.get("/api", (req, res) => {
@@ -43,5 +44,11 @@ router.get("/api", (req, res) => {
 
 // Define the path to the public directory
 const publicPath = path.join(__dirname, "../../client/dist");
+
+router.use(express.static(publicPath));
+
+router.get('*', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 export default router;
