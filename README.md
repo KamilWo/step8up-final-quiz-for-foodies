@@ -1,7 +1,7 @@
-# Quiz for Foodies - Test your tastebuds and challenge your culinary knowledge!
+# Taste Trivia: Quiz for Foodies - Test your tastebuds and challenge your culinary knowledge!
 
-Quiz is a modern web application built with **React** for the frontend and a **Sequelize/Node/PostgreSQL/MySQL**
-backend. This application provides a robust platform for hosting quizzes for foodies.
+Taste Trivia is a modern web application built with **React** for the frontend and a **Sequelize/Node/PostgreSQL/MySQL**
+backend. A full-stack trivia dashboard that tests your knowledge of all things food. Compete against others to climb the leaderboards and prove you're the ultimate food trivia master.
 
 ## Features
 
@@ -10,6 +10,10 @@ backend. This application provides a robust platform for hosting quizzes for foo
 - **PostgreSQL/MySQL backend** for efficient data storage
 - **Node.js server** for handling API requests
 - **Full-stack integration** with streamlined development workflow
+
+## User Story
+
+AS A passionate home cook, I WANT to be able to test my food knowledge on different topics SO THAT I can learn new facts, challenge my friends, and earn bragging rights on a leaderboard.
 
 ## Installation
 
@@ -72,6 +76,16 @@ npm run dev
 
 The application should now be running locally.
 
+## UI/UX Design
+
+To ensure a smooth development process, we first created high-fidelity mockups in Figma to serve as a clear blueprint for the dashboard's screens. This strategy helped us achieve our MVP (Minimum Viable Product) goals quickly and efficiently by speeding up development and reducing miscommunications and mismatched expectations.
+
+![alt text](src/client/src/assets/UI-UXdesign.jpg)
+
+## Tech Stack
+
+![alt text](src/client/src/assets/TechStack.jpg)
+
 ## Usage
 
 - Open your browser and navigate to `http://localhost:5173` to access the application.
@@ -81,6 +95,10 @@ The application should now be running locally.
 ## Contributing
 
 Feel free to submit issues and pull requests to improve the project. Contributions are welcome!
+
+Live Link: https://step8up-final-quiz-for-foodies.onrender.com/
+
+Github: https://github.com/KamilWo/step8up-final-quiz-for-foodies
 
 ## License
 
